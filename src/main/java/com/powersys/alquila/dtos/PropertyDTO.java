@@ -3,9 +3,7 @@ package com.powersys.alquila.dtos;
 import com.powersys.alquila.dtos.DetailDTO;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class PropertyDTO {
 	
@@ -18,10 +16,10 @@ public class PropertyDTO {
 	private List<DetailDTO> pDetails = new ArrayList<>();
 	private List<String> photos;
 	private String description;
-	private final Set<DetailDTO> legals= new HashSet<>();
+	private List<DetailDTO> legals= new ArrayList<>();
 	
 	public PropertyDTO() {
-		
+				
 	}
 	
 	public void addDetail(String name, String value) {
@@ -84,7 +82,7 @@ public class PropertyDTO {
 		this.description = description;
 	}
 
-	public Set<DetailDTO> getLegals() {
+	public List<DetailDTO> getLegals() {
 		return legals;
 	}
 	
@@ -103,5 +101,112 @@ public class PropertyDTO {
 	public void setpDetails(List<DetailDTO> pDetails) {
 		this.pDetails = pDetails;
 	}
+	
+	public String getGuarantor() {
+		return "";
+	}
+	
+	private String getDetail(String name, List<DetailDTO> list) {
+		DetailDTO dto = new DetailDTO(name.toLowerCase(), "");
+		if(!list.contains(dto)) throw new UnsupportedOperationException();
+		return list.get(list.indexOf(dto)).getValue();
+	}
+	
+	public void setGuarantor(String value) {
+		DetailDTO d = new DetailDTO("Garante", value);
+		this.getLegals().add(d);
+	}
+	
+	public String getNotary() {
+		return "";
+	}
+	
+	public void setNotary(String value) {
+		DetailDTO d = new DetailDTO("Escribania", value);
+		this.getLegals().add(d);
+	}
+	
+	public String getContract() {
+		return "";
+	}
+	
+	public void setContract(String value) {
+		DetailDTO d = new DetailDTO("Contrato", value);
+		this.getLegals().add(d);
+	}
+	
+	public String getContractExpenses() {
+		return "";
+	}
+	
+	public void setContractExpenses(String value) {
+		DetailDTO d = new DetailDTO("Gastos de contrato", value);
+		this.getLegals().add(d);
+	}
+	
+	public String getInitialDeposit() {
+		return "";
+	}
+	
+	public void setInitialDeposit(String value) {
+		DetailDTO d = new DetailDTO("Deposito inicial", value);
+		this.getLegals().add(d);
+	}
+	
+	public String getAditionalLegalInfo() {
+		return "";
+	}
+	
+	public void setAditionalLegalInfo(String value) {
+		DetailDTO d = new DetailDTO("Informacion adicional", value);
+		this.getLegals().add(d);
+	}
+	
+	
+	public String getAditionalBathroom() {
+		return "";
+	}
+	
+	public void setAditionalBathroom(String value) {
+		DetailDTO d = new DetailDTO("Baño Adicional", value);
+		this.getLegals().add(d);
+	}
+	
+	public String getGarage() {
+		return "";
+	}
+	
+	public void setGarage(String value) {
+		DetailDTO d = new DetailDTO("Garage", value);
+		this.getLegals().add(d);
+	}
+	
+	public String getBalcony() {
+		return "";
+	}
+	
+	public void setBalcony(String value) {
+		DetailDTO d = new DetailDTO("Balcon", value);
+		this.getLegals().add(d);
+	}
+	
+	public String getYard() {
+		return "";
+	}
+	
+	public void setYard(String value) {
+		DetailDTO d = new DetailDTO("Patio", value);
+		this.getLegals().add(d);
+	}
+	
+	public String getAditionalPropertyInfo() {
+		return "";
+	}
+	
+	public void setAditionalPropertyInfo(String value) {
+		DetailDTO d = new DetailDTO("Informacion adicional de la propiedad", value);
+		this.getLegals().add(d);
+	}
+	
 	
 }
