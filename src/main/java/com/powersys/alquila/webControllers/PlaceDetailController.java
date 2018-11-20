@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.powersys.alquila.dtos.InmuebleDTO;
+import com.powersys.alquila.dtos.PropertyDTO;
 import com.powersys.alquila.services.interfaces.PlaceDetailService;
 import com.powersys.alquila.services.implementations.InmuebleService;
 
@@ -34,7 +35,7 @@ public class PlaceDetailController {
 	
 	@GetMapping("/add")
 	public String place(Model model) {
-		model.addAttribute("inmueble", new InmuebleDTO());
+		model.addAttribute("inmueble", new PropertyDTO());
 		return "form3";
 	}
 	
