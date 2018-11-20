@@ -67,8 +67,5 @@ public class InmuebleDTO {
 	public void setTipoInmueble(String tipoInmueble) {
 		this.tipoInmueble = tipoInmueble;
 	}
-	
-	
-	
 
 }
