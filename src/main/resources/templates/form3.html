@@ -2,244 +2,376 @@
 <html>
 
 <head>
-    <title>Crear un anuncio</title>    
-    <script th:src="@{/js/jquery-3.3.1.min.js}"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/form3.css}"/>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="stylesheet" type="text/css" th:href="@{/css/form3.css}"/>
+<link href="https://fonts.googleapis.com/css?family=Fira+Sans|Lato"
+	rel="stylesheet" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/table4.css}"/>
+
+<script	th:src="@{/js/jquery-3.3.1.min.js}"></script>
+<title>Crear anuncio</title>
 </head>
 
 <body>
-    <form th:action="@{/cargarInmueble}" th:object="${inmueble}" method="post">
-        <div class="firstContainer">
-            <div class="title">
-                <h1>CREAR ANUNCIO</h1>
-            </div>
-            <div class="gridContainer">
-                <div class="imageContainer">
-                    <div class="imageUpload">
-                        <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
-                        <label for="imageUpload"></label>
-                    </div>
-                    <div class="imagePreview">
-                        <div id="imagePreview">
-                        </div>
-                    </div>
-                </div>
-                <div class="descriptionText" id="text">
-                    <span>DESCRIPCIÓN</span>
-                    <textarea type="text" id="ingresartexto"></textarea>
-                    <input type="hidden" id="AuxDetInm" th:field="*{detallesInmueble}"/>
-                </div>
+	<main>
+	<h1>CREAR ANUNCIO</h1>
+	<form id="form" class="firstcontainer" th:action="@{/cargarInmueble}" th:object="${inmueble}" method="post">
+		<div class="tab" id="pag1">
+			<div class="inmueble">
+				<h2>Tipo de inmueble que vas a publicar</h2>
+				<div class="btn" id="btns">
+					<input class="tipo" type="radio" value="DEPARTAMENTO"
+						name="inmueble" id="dpto" checked="checked" /> <label for="dpto">DEPARTAMENTO</label>
+					<input class="tipo" type="radio" value="CASA" name="inmueble"
+						id="casa" /> <label for="casa">CASA</label>
+				<input type="hidden" id="inputTipo" th:field="*{placeType}" />
+				</div>
+			</div>
+			<div class="containerdetalles">
+				<div id="alquilercontainer" class="alquiler">
+					<h5>ALQUILER</h5>
+					<div class="sub alquiler_container">
+						<label for="monto" id="alquilermonto">Monto*</label> <span
+							id="spanmonto">$<input type="number" step="any" id="monto"
+							oninput="this.className = ''" th:field="*{price}"/></span>
 
-                <div class="addressContainer" th:field="*{direccion}">
-                    <h3>DIRECCIÓN</h3>
-                    <label for="calle">Calle</label>
-                    <input type="text" name="calle" required="required" placeholder="(*)"/>
-                    <label for="altura">Altura</label>
-                    <input type="text" name="altura" required="required" placeholder="(*)"/>
-                </div>
-                <div class="direccioncontainer2">
-                    <label for="departamento">Departamento</label>
-                    <input type="text" name="departamento"/>
-                    <label for="piso" id="floor">Piso</label>
-                    <input type="text" name="piso"/>
-                </div>
-                <input type="hidden" id="AuxDir" th:field="*{direccion}"/>
+						<div class="expensasbuttons">
+							<input type="radio" class="monto" name="monto" id="sinexp"
+								value="SIN EXPENSAS" checked="checked" /> <label for="sinexp">SIN
+								EXPENSAS</label> <input type="radio" class="monto" name="monto"
+								id="conexp" value="CON EXPENSAS" /> <label for="conexp">CON
+								EXPENSAS</label>
+						</div>
+						<div class="expensasmonto">
+							<label for="expensas">$<input type="number" id="expensas"
+								name="expensas" style="width: 80%" oninput="this.className = ''" /></label>
+						</div>
+					</div>
+				</div>
+				<div id="direcontainer" class="direccion">
+					<h5>DIRECCIÓN</h5>
+					<div class="inputcontainer">
+						<div class="Custominp">
+							<label for="inp" class="inp"> <input type="text" id="inp1"
+								placeholder="&nbsp;" th:field="*{aStreet}"/> <span class="label">Calle*</span>
+								<span class="border"></span>
+							</label>
+						</div>
 
-                <label for="otros">Otros</label>
-                <input type="text" name="otros" placeholder="Referencias de propiedad" th:field="*{otrosDetalles}"/>
-                <br/><label for="otros">(*) Campos obligatorios</label>
-            </div>
-            <div class="secondgridContainer">
+						<div class="Custominp">
+							<label for="inp" class="inp"> <input type="text" id="inp2"
+								placeholder="&nbsp;" th:field="*{aNumber}"/> <span class="label">Altura*</span>
+								<span class="border"></span>
+							</label>
+						</div>
+					</div>
 
-                <div class="userButtons" id="userbtn">
-                    <button class="tipo" name="buttons" type="button" value="departamento" id="departamento">DEPARTAMENTO</button>
-                    <button class="tipo" name="buttons" type="button" value="casa" id="casa">CASA</button>
-                    <input type="hidden" id="AuxTipo" th:field="*{tipoInmueble}"/>
-                </div>
-                <div class="habContainer">
-                    <span>HABITACIONES</span>
-                    <input type="radio" id="radio1" name="hab" value="1" checked="checked"/>
-                    <label for="radio1" name="hablabel">1</label>
-                    <input type="radio" id="radio2" name="hab" value="2"/>
-                    <label for="radio2" name="hablabel">2</label>
-                    <input type="radio" id="radio3" name="hab" value="3"/>
-                    <label for="radio3" name="hablabel">3</label>
-                    <input type="radio" id="radio4" name="hab" value="4"/>
-                    <label for="radio4" name="hablabel">4 o más</label>
-                </div>
+					<div class="inputcontainer">
+						<div class="Custominp2">
+							<label for="inp2" class="inp2"> <input type="text"
+								id="inp2" placeholder="&nbsp;"/> <span class="label">Departamento</span>
+								<span class="border"></span>
+							</label>
+						</div>
 
-                <div class="rentPrice">
-
-                    <div class="slidecontainer">
-                        <span>ALQUILER MONTO</span>
-                        $<input type="number" step="any" id="monto" name="monto" required="required" th:field="*{precio}"/>(*)
-
-                        <div class="expensasbuttons" id="expensas">
-                            <input type="button" class="monto" name="monto" id="btnExpensas" value="Con expensas"/>
-                            <input type="button" class="monto" name="monto" id="btnSinExpensas" value="Sin expensas"/>
-                            <label for="expensas">$</label>
-                            <input type="number" id="valorExpensas" name="expensas"/>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="thirdgridContainer">
-                <div class="infolegalcontainer">
-                    <span>INFORMACIÓN LEGAL</span>
-                    
-                    <div class="wrapper">
-                        <div class="Rtable Rtable--5cols Rtable--collapse">
-                            <div class="Rtable-row Rtable-row--head">
-                                <div class="Rtable-cell date-cell column-heading"></div>
-                                <div class="Rtable-cell topic-cell column-heading">Si</div>
-                                <div class="Rtable-cell access-link-cell column-heading">No</div>
-                                <div class="Rtable-cell replay-link-cell column-heading"></div>
-
-                            </div>
-
-                            <div class="Rtable-row">
-                                <div class="Rtable-cell date-cell">
-                                    <div class="Rtable-cell--heading">Date</div>
-                                    <div class="Rtable-cell--content date-content"><span class="webinar-date">Garante</span><br /></div>
-                                </div>
-                                <div class="Rtable-cell topic-cell">
-                                    <div class="Rtable-cell--content title-content"><input type="radio" id="gsi" name="garante" value="si" checked="checked"/><label for="gsi"></label></div>
-                                </div>
-                                <div class="Rtable-cell access-link-cell">
-                                    <div class="Rtable-cell--heading">Access Link</div>
-                                    <div class="Rtable-cell--content access-link-content"> <input type="radio" id="gno" name="garante" value="no"/>
-                                        <label for="gno"></label></div>
-                                </div>
-                                <div class="Rtable-cell replay-link-cell">
-                                    <div class="Rtable-cell--heading">Replay</div>
-                                    
-                                </div>
-
-                            </div>
-
-                            <div class="Rtable-row is-striped">
-                                <div class="Rtable-cell date-cell">
-                                    <div class="Rtable-cell--heading">Date</div>
-                                    <div class="Rtable-cell--content date-content"><span class="webinar-date">Contrato</span><br /></div>
-                                </div>
-                                <div class="Rtable-cell topic-cell">
-                                    <div class="Rtable-cell--content title-content"><input type="radio" id="csi" name="contrato" value="si" checked="checked"/><label for="csi"></label></div>
-                                </div>
-                                <div class="Rtable-cell access-link-cell">
-                                    <div class="Rtable-cell--heading">Access Link</div>
-                                    <div class="Rtable-cell--content access-link-content"><input type="radio" id="cno" name="contrato" value="no"/>
-                                        <label for="cno"></label></div>
-                                </div>
-                                <div class="Rtable-cell replay-link-cell">
-                                    <div class="Rtable-cell--heading">Replay</div>
-                                    
-                                </div>
-
-                            </div>
-
-                            <div class="Rtable-row">
-                                <div class="Rtable-cell date-cell">
-                                    <div class="Rtable-cell--heading">Date</div>
-                                    <div class="Rtable-cell--content date-content"><span class="webinar-date">Depósito inicial</span><br /></div>
-                                </div>
-                                <div class="Rtable-cell topic-cell">
-                                    <div class="Rtable-cell--content title-content"><input type="radio" id="dsi" name="deposito" value="si" checked="checked"/>
-                                        <label for="dsi"></label></div>
-                                </div>
-                                <div class="Rtable-cell access-link-cell">
-                                    <div class="Rtable-cell--heading">Access Link</div>
-                                    <div class="Rtable-cell--content access-link-content"> <input type="radio" id="dno" name="deposito" value="no"/>
-                                        <label for="dno"></label></div>
-                                </div>
-                                <div class="Rtable-cell replay-link-cell">
-                                    <div class="Rtable-cell--heading">Replay</div>
-                                    
-                                </div>
-                            </div>
-
-                            <div class="Rtable-row is-striped">
-                                <div class="Rtable-cell date-cell">
-                                    <div class="Rtable-cell--heading">Date</div>
-                                    <div class="Rtable-cell--content date-content"><span class="webinar-date">Gastos de contrato</span></div>
-                                </div>
-                                <div class="Rtable-cell topic-cell">
-                                    <div class="Rtable-cell--content title-content"><input type="radio" id="gcsi" name="gastos" value="si" checked="checked"/>
-                                        <label for="gcsi"></label></div>
-                                </div>
-                                <div class="Rtable-cell access-link-cell">
-                                    <div class="Rtable-cell--heading">Access Link</div>
-                                    <div class="Rtable-cell--content access-link-content"><input type="radio" id="gcno" name="gastos" value="no"/>
-                                        <label for="gcno"></label></div>
-                                </div>
-                                <div class="Rtable-cell replay-link-cell">
-                                    <div class="Rtable-cell--heading">Replay</div>
-                                    
-                                </div>
-
-                            </div>
-
-                            <div class="Rtable-row">
-                                <div class="Rtable-cell date-cell">
-                                    <div class="Rtable-cell--heading">Date</div>
-                                    <div class="Rtable-cell--content date-content"><span class="webinar-date">Escribanía</span></div>
-                                </div>
-                                <div class="Rtable-cell topic-cell">
-                                    <div class="Rtable-cell--content title-content"><input type="radio" id="esi" name="escribania" value="si" checked="checked"/>
-                                        <label for="esi"></label></div>
-                                </div>
-                                <div class="Rtable-cell access-link-cell">
-                                    <div class="Rtable-cell--heading">Access Link</div>
-                                    <div class="Rtable-cell--content access-link-content"><input type="radio" id="eno" name="escribania" value="no"/>
-                                        <label for="eno"></label></div>
-                                </div>
-                                <div class="Rtable-cell replay-link-cell">
-                                    <div class="Rtable-cell--heading">Replay</div>
-                                    
-                                </div>
-                            </div>
-
-                            <div class="Rtable-row is-striped">
-                                <div class="Rtable-cell date-cell">
-                                    <div class="Rtable-cell--heading">Date</div>
-                                    <div class="Rtable-cell--content date-content"><span class="webinar-date">Otros</span></div>
-                                </div>
-                                <div class="otros">
-                                    <div class="Rtable-cell--content title-content"> <input type="text" name="Deposito" id="DetLegOtros"/></div>
-                                    <input type="hidden" id="AuxDetLeg" th:field="*{detallesLegales}"/>
-                                </div>
+						<div class="Custominp2">
+							<label for="inp2" class="inp2"> <input type="text"
+								id="inp2" placeholder="&nbsp;"/> <span class="label">Piso</span>
+								<span class="border"></span>
+							</label>
+						</div>
+					</div>
 
 
-                                <div class="Rtable-cell Rtable-cell--foot pdf-cell">
-                                    <div class="Rtable-cell--heading">Checklist</div>
-                                    <div class="Rtable-cell--content pdf-content"><a href="#0"><i class="ion-document-text"></i></a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tagsContainer">
-                    <input type="button" name="contrato" value="#Contrato"/>
-                    <input type="button" name="sinGarante" value="#SinGarante"/>
-                    <input type="button" name="sinMascotas" value="#SinMascotas"/>
-                    <input type="button" name="sinDeposito" value="#SinDeposito"/>
-                    <input type="button" name="sinNiños" value="#SinNiños"/>
-                    <input type="button" name="Deposito inicial" value="#DepositoInicial"/>
-                    <input type="button" name="sinExpensas" value="#SinExpensas"/>
-                    <input type="button" name="gastosDeContrato" value="#GastosDeContrato"/>
-                </div>
-            </div>
-            <div class="actionButtons">
-                <button type="submit" name="publicar" id="BtnPublicar" value="#">PUBLICAR</button>
-                <button type="submit" name="cancelar" value="#">CANCELAR</button>
-            </div>
-        </div>
-    </form>
-    
-	<script th:src="@{/js/main.js}"></script>   
-    
+
+					<div class="otros">
+						<label for="otros" id="otroslabel">Otros</label>
+						<textarea id="diretext" name="otros"
+							placeholder="Más información para encontrar el inmueble..."
+							style="width: 100%"></textarea>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="tab" id="pag2">
+			<div class="table-flex-container">
+				<div class="infolegal" id="legal">
+					<h5>INFORMACIÓN LEGAL</h5>
+					<div class="container-table100">
+						<div class="wrap-table100">
+							<div class="table100 ver2 m-b-110">
+								<table data-vertable="ver2" class="table1">
+									<thead>
+										<tr class="row100 head">
+											<th class="column100 column1" data-column="column1"></th>
+											<th class="column100 column2" data-column="column2">Si</th>
+											<th class="column100 column3" data-column="column3">No</th>
+											<th class="column100 column4" data-column="column4"></th>
+										</tr>
+									</thead>
+									<tbody>
+
+										<tr class="row100">
+											<td class="column100 column1" data-column="column1">Garante</td>
+											<td class="column100 column2" data-column="column2"><input
+												class="check" type="radio" id="gsi" name="garante"
+												value="true"/><label for="gsi"></label></td>
+											<td class="column100 column3" data-column="column3"><input
+												class="check" type="radio" id="gno" name="garante"
+												value="false" checked="checked"/><label for="gno"></label></td>
+											<td class="column100 column4" data-column="column4"></td>
+											<input type="hidden" id="inputGarante" th:field="*{Guarantor}"/>
+										</tr>
+
+										<tr class="row100">
+											<td class="column100 column1" data-column="column1">Escribanía</td>
+											<td class="column100 column2" data-column="column2"><input
+												class="check" type="radio" id="esi" name="escribania"
+												value="true"/><label for="esi"></label></td>
+											<td class="column100 column3" data-column="column3"><input
+												class="check" type="radio" id="eno" name="escribania"
+												value="false" checked="checked"/><label for="eno"></label></td>
+											<td class="column100 column4" data-column="column4"></td>
+											<input type="hidden" id="inputEscribania" th:field="*{Notary}"/>
+										</tr>
+
+										<tr class="row100">
+											<td class="column100 column1" data-column="column1">Contrato</td>
+											<td class="column100 column2" data-column="column2"><input
+												class="check" type="radio" id="csi" name="contrato"
+												value="true"/><label for="csi"></label></td>
+											<td class="column100 column3" data-column="column3"><input
+												class="check" type="radio" id="cno" name="contrato"
+												value="false" checked="checked"/><label for="cno"></label></td>
+											<td class="column100 column4" data-column="column4"></td>
+											<input type="hidden" id="inputContrato" th:field="*{Contract}"/>
+										</tr>
+
+										<tr class="row100">
+											<td class="column100 column1" data-column="column1">Gastos
+												de contrato</td>
+											<td class="column100 column2" data-column="column2"><input
+												class="check" type="radio" id="gcsi" name="gastos"
+												value="true"/><label for="gcsi"></label></td>
+											<td class="column100 column3" data-column="column3"><input
+												class="check" type="radio" id="gcno" name="gastos"
+												value="false" checked="checked"/><label for="gcno"></label></td>
+											<td class="column100 column4" data-column="column4"><label
+												for="gastosc">$</label><input type="number" step="any"
+												name="deposito" value="monto" class="inputnumber"
+												id="gastosc" style="width: 95%" /></td>
+											<input type="text" id="inputGastosContrato" th:field="*{ContractExpenses}"/>
+										</tr>
+
+										<tr class="row100">
+											<td class="column100 column1" data-column="column1">Depósito
+												inicial</td>
+											<td class="column100 column2" data-column="column2"><input
+												class="check" type="radio" id="dsi" name="deposito"
+												value="true"/><label for="dsi"></label></td>
+											<td class="column100 column3" data-column="column3"><input
+												class="check" type="radio" id="dno" name="deposito"
+												value="false" checked="checked"/><label for="dno"></label></td>
+											<td class="column100 column4" data-column="column4"><label
+												for="deposito">$</label><input type="number" step="any"
+												name="deposito" value="monto" class="inputnumber"
+												id="deposito" style="width: 95%" /></td>
+											<input type="hidden" id="inputDepositoInicial" th:field="*{InitialDeposit}"/>
+										</tr>
+									</tbody>
 
 
+								</table>
+							</div>
+
+						</div>
+					</div>
+					<textarea type="text" name="ingresartexto"
+						placeholder="Más información sobre las condiciones legales requeridas..." th:field="*{AditionalLegalInfo}"></textarea>
+
+				</div>
+
+				<div class="inmueble" id="detalles">
+					<h5>DETALLES DEL INMUEBLE</h5>
+					<div class="dropdown container">
+						<span class="titledrop">Ambientes</span>
+						<div class="select2">
+							<input type="radio" name="option2"/> <i
+								class="toggle icon icon-arrow-down"></i> <i
+								class="toggle icon icon-arrow-up"></i> <span class="placeholder">Ambientes</span>
+							<label class="option"> <input type="radio" name="option2"
+								value="" checked="checked"/> <span class="title"><i class=""></i>Monoambiente</span>
+							</label> <label class="option"> <input type="radio"
+								name="option2" value="1" checked="checked"/> <span class="title"><i
+									class=""></i>1</span>
+							</label> <label class="option"> <input type="radio"
+								name="option2" value="2"/> <span class="title"><i
+									class=""></i>2</span>
+							</label> <label class="option"> <input type="radio"
+								name="option2" value="3"/> <span class="title"><i
+									class=""></i>3</span>
+							</label> <label class="option"> <input type="radio"
+								name="option2" vale="4"/> <span class="title"><i
+									class=""></i>4 o más</span>
+							</label>							
+						</div>
+						<input type="hidden" id="inputCantHamb" th:field="*{rooms}" />
+					</div>
+					<div class="wrap-table100" id="table2">
+						<div class="table100 ver3">
+							<table data-vertable="ver2" class="table2">
+								<thead>
+									<tr class="row100 head">
+										<th class="column100 column1" data-column="column1"></th>
+										<th class="column100 column2" data-column="column2">Si</th>
+										<th class="column100 column3" id="col4" data-column="column3">No</th>
+									</tr>
+								</thead>
+								<tbody>
+
+									<tr class="row100">
+										<td class="column100 column1" data-column="column1">Baño
+											adicional</td>
+										<td class="column100 column2" data-column="column2"><input
+											class="check" type="radio" id="bsi" name="bano" value="true"
+											checked="checked"/><label for="bsi"></label></td>
+										<td class="column100 column3" data-column="column3"><input
+											class="check" type="radio" id="bno" name="bano" value="false"/><label
+											for="bno"></label></td>
+									<input type="hidden" id="inputBañoAdicional" th:field="*{AditionalBathroom}" />
+									</tr>
+
+									<tr class="row100">
+										<td class="column100 column1" data-column="column1">Garage</td>
+										<td class="column100 column2" data-column="column2"><input
+											class="check" type="radio" id="grsi" name="garage"
+											value="true" checked="checked"/><label for="grsi"></label></td>
+										<td class="column100 column3" data-column="column3"><input
+											class="check" type="radio" id="grno" name="garage"
+											value="false"/><label for="grno"></label></td>
+										<input type="hidden" id="inputGarage" th:field="*{Garage}" />
+									</tr>
+
+									<tr class="row100">
+										<td class="column100 column1" data-column="column1">Balcón</td>
+										<td class="column100 column2" data-column="column2"><input
+											class="check" type="radio" id="lsi" name="balcon"
+											value="true" checked="checked"/><label for="lsi"></label></td>
+										<td class="column100 column3" data-column="column3"><input
+											class="check" type="radio" id="lno" name="balcon"
+											value="false"/><label for="lno"></label></td>
+										<input type="hidden" id="inputBalcon" th:field="*{Balcony}" />
+									</tr>
+
+									<tr class="row100">
+										<td class="column100 column1" data-column="column1">Patio</td>
+										<td class="column100 column2" data-column="column2"><input
+											class="check" type="radio" id="psi" name="patio" value="true"
+											checked="checked"/><label for="psi"></label></td>
+										<td class="column100 column3" data-column="column3"><input
+											class="check" type="radio" id="pno" name="patio"
+											value="false"/><label for="pno"></label></td>
+										<input type="hidden" id="inputPatio" th:field="*{Yard}" />
+									</tr>
+								</tbody>
+
+
+							</table>
+						</div>
+
+					</div>
+					<textarea type="text" name="ingresartexto" id="descripcion"
+						placeholder="Añade una descripción del inmueble..." th:field="*{AditionalPropertyInfo}"></textarea>
+
+				</div>
+			</div>
+		</div>
+		<div class="tab" id="pag3">
+			<div class="wrapper">
+
+				<div class="imageContainer">
+
+					<div class="imageUpload1">
+						<img class="image" id="div1" src="#" alt="" style="display: none" />
+						<input type='file' onchange="readURL1(this);" id="imageUpload1"
+							accept=".png, .jpg, .jpeg" set-to="div1" style="display: none;" />
+						<label for="imageUpload1"></label> <label
+							for="imageUploadpreview1"></label>
+						<div id="thumb1"></div>
+					</div>
+
+					<div class="mensaje">
+						<span class="imgtips"></span>
+						<div class="mensaje container">
+							<h2>¡PORQUE LA PRIMERA IMPRESIÓN IMPORTA!</h2>
+							<p>En esta primer imagen subí tu mejor foto, es lo primero
+								que verá tu proximo inquilino.</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="imageContainer2">
+
+					<div class="imageUpload2">
+						<img class="image" id="div2" src="#" alt="" style="display: none" />
+						<input type='file' onchange="readURL2(this);" id="imageUpload2"
+							accept=".png, .jpg, .jpeg" set-to="div2" style="display: none;" />
+						<label for="imageUpload2"></label> <label
+							for="imageUploadpreview2"></label>
+						<div id="thumb2"></div>
+					</div>
+
+					<div class="imageUpload3">
+						<img class="image" id="div3" src="#" alt="" style="display: none" />
+						<input type='file' onchange="readURL3(this);" id="imageUpload3"
+							accept=".png, .jpg, .jpeg" set-to="div3" style="display: none;" />
+						<label for="imageUpload3"></label> <label
+							for="imageUploadpreview3"></label>
+						<div id="thumb3"></div>
+					</div>
+
+
+					<div class="imageUpload4">
+						<img class="image" id="div4" src="#" alt="" style="display: none" />
+						<input type='file' onchange="readURL4(this);" id="imageUpload4"
+							accept=".png, .jpg, .jpeg" set-to="div4" style="display: none;" />
+						<label for="imageUpload4"></label> <label
+							for="imageUploadpreview4"></label>
+						<div id="thumb4"></div>
+					</div>
+
+
+					<div class="imageUpload5">
+						<img class="image" id="div5" src="#" alt="" style="display: none" />
+						<input type='file' onchange="readURL5(this);" id="imageUpload5"
+							accept=".png, .jpg, .jpeg" set-to="div5" style="display: none;" />
+						<label for="imageUpload5"></label> <label
+							for="imageUploadpreview5"></label>
+						<div id="thumb5"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+	<div class="buttons">
+		<div style="float: right;">
+			<button class="actionbtn" type="button" id="prevBtn"
+				onclick="nextPrev(-1)">ATRÁS</button>
+			<button class="actionbtn" type="button" id="nextBtn"
+				onclick="nextPrev(1)">SIGUIENTE</button>
+			<button class="actionbtn" type="button" id="cancelar">CANCELAR</button>
+		</div>
+		<div>
+			<span class="step"></span> <span class="step"></span> <span
+				class="step"></span>
+		</div>
+	</div>
+	</main>
+	
+	
+	<script th:src="@{/js/main.js}"></script>
 </body>
 
 </html>
