@@ -84,13 +84,20 @@ main {
 
 .tab {
     display:none;
-    margin-top: 50px;
+    margin-top: 25px;
     grid-row-start: 2;
-    grid-row-end: 9;
+    grid-row-end: 7;
     grid-column-start: 2;
     grid-column-end: 6;
 }
-
+.tab1 {
+    
+    margin-top: 25px;
+    grid-row-start: 2;
+    grid-row-end: 7;
+    grid-column-start: 2;
+    grid-column-end: 6;
+}
 
 
 .inmueble {
@@ -98,8 +105,9 @@ main {
 }
 
 .inmueble > h2 {
+    text-align: center;
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin-top: 5px;
 }
 
@@ -167,6 +175,8 @@ input {
 
 /*______________________________________*/
 .btn {
+    display: flex;
+    justify-content: center;
     margin-bottom: 10px;
     padding: 2%;
     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
@@ -180,7 +190,6 @@ input {
     display: inline-block;
     background-color: #e0e0e0;
     padding: 7px;
-    font-family: Arial, Helvetica, sans-serif;
     cursor: pointer;
     border-bottom-left-radius: 4px;
     border-top-left-radius: 4px;
@@ -190,13 +199,14 @@ input {
     color: white;
     font-weight: 700;
     font-family: 'Lato', sans-serif;
-    width: 150px;
+    width: 130px;
     outline: none;
+    font-size: 0.9rem;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
 }
 
 label[for="dpto"] {
-    margin-right: 45px
+    margin-right: 10px
 }
 
 .tipo:hover + label {
@@ -213,10 +223,6 @@ label[for="dpto"] {
     border: none;
 }
 
-
-.ContainerInm {
-    background-color: #f1f1f1;
-}
 
 /*______________________________________*/
 .monto {
@@ -243,10 +249,6 @@ label[for="dpto"] {
     width: 120px;
     outline: none;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
-}
-
-label[for="casa"] {
-    margin-right: 45px
 }
 
 .monto:hover + label {
@@ -612,7 +614,7 @@ label[for="imageUploadpreview1"] {
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
     font-weight: normal;
     transition: all .2s ease-in-out;
-    background-image: url('../image/edificio8.jpg');
+    background-image: url('../img/edificio8.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -681,7 +683,7 @@ label[for="imageUploadpreview2"] {
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
     font-weight: normal;
     transition: all .2s ease-in-out;
-    background-image: url('../image/edificio8.jpg');
+    background-image: url('../img/edificio8.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -747,7 +749,7 @@ label[for="imageUploadpreview3"] {
     border: 3px solid;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
     transition: all .2s ease-in-out;
-    background-image: url('../image/edificio8.jpg');
+    background-image: url('../img/edificio8.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -809,7 +811,7 @@ label[for="imageUploadpreview4"] {
     border: 3px solid;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
     transition: all .2s ease-in-out;
-    background-image: url('../image/edificio8.jpg');
+    background-image: url('../img/edificio8.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -873,7 +875,7 @@ label[for="imageUpload5"]:hover {
     border: 3px solid;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
     transition: all .2s ease-in-out;
-    background-image: url('../image/edificio8.jpg');
+    background-image: url('../img/edificio8.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1353,3 +1355,4 @@ form {
     width: 63%;
 
 }
+

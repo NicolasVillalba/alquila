@@ -8,9 +8,12 @@ import org.springframework.stereotype.Service;
 
 import com.powersys.alquila.domain.Address;
 import com.powersys.alquila.domain.Detail;
+import com.powersys.alquila.domain.LegalDetail;
 import com.powersys.alquila.domain.PlaceType;
 import com.powersys.alquila.domain.Property;
+import com.powersys.alquila.domain.PropertyDetail;
 import com.powersys.alquila.dtos.InmuebleDTO;
+import com.powersys.alquila.dtos.PropertyDTO;
 import com.powersys.alquila.repositories.PlacesRepository;
 import com.powersys.alquila.services.interfaces.InmuebleServiceInterface;
 
@@ -28,26 +31,47 @@ public class InmuebleService implements InmuebleServiceInterface{
 	private PlacesRepository propertyRepository;
 
 	@Override
-	public boolean insertInmueble(InmuebleDTO inmueble) {
+	public boolean insertInmueble(PropertyDTO inmueble) {
 		Property p = new Property();
 		
-		List<Detail> details = new ArrayList<>();
-		List<Detail> legals = new ArrayList<>();
-		p.setDetails(details);
-		p.setLegals(legals);
+		//List<Detail> details = new ArrayList<>();
+		//List<Detail> legals = new ArrayList<Detail>();
+		//p.setDetails(details);
+		//p.setLegals(legals);
 		Address a = new Address();
+		PropertyDetail pd = new PropertyDetail();
+		LegalDetail pl = new LegalDetail();
 		
-		a.setNumber(inmueble.getDireccion());
-		p.setPrice(inmueble.getPrecio());
-		Detail d = new Detail();
-		d.setName(inmueble.getDetallesInmueble());
-		p.getDetails().add(d);
-		Detail d2 = new Detail();
-		d2.setName(inmueble.getOtrosDetalles());
-		p.getDetails().add(d2);
+		a.setStreet(inmueble.getaStreet());
+		a.setNumber(inmueble.getaNumber());
+		a.setFloor(inmueble.getaFloor());
+		a.setApartment(inmueble.getaApartment());
+		a.setAditionalInfo(inmueble.getAditionalBathroom());
+		p.setExpenses(inmueble.getExpenses());
+		p.setExpensesValue(inmueble.getContractExpensesValue());
+		p.setPrice(inmueble.getPrice());
+		p.setImage(inmueble.getPath());
+		pd.setAditionalBathroom(inmueble.getAditionalBathroom());
+		pd.setGarage(inmueble.getGarage());
+		pd.setYard(inmueble.getYard());
+		pd.setBalcony(inmueble.getBalcony());
+		pd.setAditionalInfo(inmueble.getAditionalProInfo());
+		pl.setGuarantor(inmueble.getGuarantor());
+		pl.setContract(inmueble.getContract());
+		pl.setNotary(inmueble.getNotary());
+		pl.setContractExpenses(inmueble.getContractExpenses());
+		pl.setContractExpensesValue(inmueble.getContractExpensesValue());
+		pl.setInitialDeposit(inmueble.getInitialDeposit());
+		pl.setInitialDepositValue(inmueble.getInitialDepositValue());
+		pl.setAditionalInfo(inmueble.getAditionalLegInfo());
+		//Detail d = new Detail();
+		//p.getDetails().add(d);
+		//Detail d2 = new Detail();
+		//p.getDetails().add(d2);
 		p.setAdress(a);
-		p.setType(PlaceType.DEPARMENT);
-		p.setDescription(inmueble.getDetallesLegales());
+		p.setPropertyDetail(pd);
+		p.setLegalDetail(pl);
+		p.setType(inmueble.getPlaceType());
 		this.propertyRepository.save(p);
 		return true;
 	}
@@ -57,4 +81,17 @@ public class InmuebleService implements InmuebleServiceInterface{
 		return (List<Property>) this.propertyRepository.findAll();
 	}
 
+	@Override
+	public boolean insertInmueble(InmuebleDTO inmueble) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public Property find(String id) {
+		return this.propertyRepository.findById(Long.parseLong(id));
+	}
+
+	
+
+	
 }

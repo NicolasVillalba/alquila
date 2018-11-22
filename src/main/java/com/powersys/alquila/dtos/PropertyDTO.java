@@ -5,23 +5,47 @@ import com.powersys.alquila.dtos.DetailDTO;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
+import org.thymeleaf.dom.Text;
+
 public class PropertyDTO {
-	
+
 	private String placeType;
+	private String expenses;
+	private Integer expensesValue;
 	private String rooms;
-	private String price;
+	private Integer price;
 	private String aStreet;
 	private String aNumber;
-	private List<DetailDTO> aDetails = new ArrayList<>();
-	private List<DetailDTO> pDetails = new ArrayList<>();
+	private String aFloor;
+	private String aApartment;
+	private String aAditionalInfo;
+	private String aditionalBathroom;
+	private String yard;
+	private String garage;
+	private String balcony;
+	private String aditionalProInfo;
+	private String guarantor;
+	private String notary;
+	private String contract;
+	private String contractExpenses;
+	private Integer contractExpensesValue;
+	private String initialDeposit;
+	private Integer initialDepositValue;	
+	private String aditionalLegInfo;
+	private MultipartFile image;	
+	private String path;
+	
+	
+	
+	
+	// private List<DetailDTO> aDetails = new ArrayList<>();
+	// private List<DetailDTO> pDetails = new ArrayList<>();
 	private List<String> photos;
-	private String description;
-	private List<DetailDTO> legals= new ArrayList<>();
 	
-	public PropertyDTO() {
-				
-	}
+	private List<DetailDTO> legals = new ArrayList<>();
 	
+
 	public void addDetail(String name, String value) {
 		this.legals.add(new DetailDTO(name, value));
 	}
@@ -34,11 +58,11 @@ public class PropertyDTO {
 		this.placeType = placeType;
 	}
 
-	public String getPrice() {
+	public Integer getPrice() {
 		return price;
 	}
 
-	public void setPrice(String price) {
+	public void setPrice(Integer price) {
 		this.price = price;
 	}
 
@@ -74,139 +98,189 @@ public class PropertyDTO {
 		this.photos = photos;
 	}
 
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
+	
 
 	public List<DetailDTO> getLegals() {
 		return legals;
 	}
+
 	
-	public List<DetailDTO> getaDetails() {
-		return aDetails;
-	}
+		
 
-	public void setaDetails(List<DetailDTO> aDeatails) {
-		this.aDetails = aDeatails;
-	}
-
-	public List<DetailDTO> getpDetails() {
-		return pDetails;
-	}
-
-	public void setpDetails(List<DetailDTO> pDetails) {
-		this.pDetails = pDetails;
-	}
-	
 	public String getGuarantor() {
-		return "";
-	}
+		return guarantor;
+	}	
+
 	
-	private String getDetail(String name, List<DetailDTO> list) {
-		DetailDTO dto = new DetailDTO(name.toLowerCase(), "");
-		if(!list.contains(dto)) throw new UnsupportedOperationException();
-		return list.get(list.indexOf(dto)).getValue();
-	}
-	
-	public void setGuarantor(String value) {
-		DetailDTO d = new DetailDTO("Garante", value);
-		this.getLegals().add(d);
-	}
-	
+
 	public String getNotary() {
-		return "";
+		return notary;
 	}
-	
-	public void setNotary(String value) {
-		DetailDTO d = new DetailDTO("Escribania", value);
-		this.getLegals().add(d);
+
+	public void setNotary(String notary) {
+		this.notary = notary;
 	}
-	
+
 	public String getContract() {
-		return "";
+		return contract;
 	}
-	
-	public void setContract(String value) {
-		DetailDTO d = new DetailDTO("Contrato", value);
-		this.getLegals().add(d);
+
+	public void setContract(String contract) {
+		this.contract = contract;
 	}
-	
+
 	public String getContractExpenses() {
-		return "";
+		return contractExpenses;
 	}
-	
-	public void setContractExpenses(String value) {
-		DetailDTO d = new DetailDTO("Gastos de contrato", value);
-		this.getLegals().add(d);
+
+	public void setContractExpenses(String contractExpenses) {
+		this.contractExpenses = contractExpenses;
 	}
-	
+
 	public String getInitialDeposit() {
-		return "";
+		return initialDeposit;
 	}
-	
-	public void setInitialDeposit(String value) {
-		DetailDTO d = new DetailDTO("Deposito inicial", value);
-		this.getLegals().add(d);
+
+	public void setInitialDeposit(String initialDeposit) {
+		this.initialDeposit = initialDeposit;
 	}
-	
-	public String getAditionalLegalInfo() {
-		return "";
+
+	public void setGuarantor(String guarantor) {
+		this.guarantor = guarantor;
 	}
-	
-	public void setAditionalLegalInfo(String value) {
-		DetailDTO d = new DetailDTO("Informacion adicional", value);
-		this.getLegals().add(d);
-	}
-	
-	
+
 	public String getAditionalBathroom() {
-		return "";
+		return aditionalBathroom;
 	}
-	
-	public void setAditionalBathroom(String value) {
-		DetailDTO d = new DetailDTO("Baño Adicional", value);
-		this.getLegals().add(d);
+
+	public void setAditionalBathroom(String aditionalBathroom) {
+		this.aditionalBathroom = aditionalBathroom;
 	}
-	
+
 	public String getGarage() {
-		return "";
+		return garage;
 	}
-	
-	public void setGarage(String value) {
-		DetailDTO d = new DetailDTO("Garage", value);
-		this.getLegals().add(d);
+
+	public void setGarage(String garage) {
+		this.garage = garage;
 	}
-	
+
 	public String getBalcony() {
-		return "";
+		return balcony;
 	}
-	
-	public void setBalcony(String value) {
-		DetailDTO d = new DetailDTO("Balcon", value);
-		this.getLegals().add(d);
+
+	public void setBalcony(String balcony) {
+		this.balcony = balcony;
 	}
-	
+
 	public String getYard() {
-		return "";
+		return yard;
 	}
-	
-	public void setYard(String value) {
-		DetailDTO d = new DetailDTO("Patio", value);
-		this.getLegals().add(d);
+
+	public void setYard(String yard) {
+		this.yard = yard;
 	}
-	
+
 	public String getAditionalPropertyInfo() {
 		return "";
 	}
-	
+
 	public void setAditionalPropertyInfo(String value) {
 		DetailDTO d = new DetailDTO("Informacion adicional de la propiedad", value);
 		this.getLegals().add(d);
 	}
+
+	public String getAditionalProInfo() {
+		return aditionalProInfo;
+	}
+
+	public void setAditionalProInfo(String aditionalProInfo) {
+		this.aditionalProInfo = aditionalProInfo;
+	}
+
+	public Integer getContractExpensesValue() {
+		return contractExpensesValue;
+	}
+
+	public void setContractExpensesValue(Integer contractExpensesValue) {
+		this.contractExpensesValue = contractExpensesValue;
+	}
+
+	public Integer getInitialDepositValue() {
+		return initialDepositValue;
+	}
+
+	public void setInitialDepositValue(Integer initialDepositValue) {
+		this.initialDepositValue = initialDepositValue;
+	}
+
+	public String getAditionalLegInfo() {
+		return aditionalLegInfo;
+	}
+
+	public void setAditionalLegInfo(String aditionalLegInfo) {
+		this.aditionalLegInfo = aditionalLegInfo;
+	}
+
+	public void setLegals(List<DetailDTO> legals) {
+		this.legals = legals;
+	}
+
+	public String getaFloor() {
+		return aFloor;
+	}
+
+	public void setaFloor(String aFloor) {
+		this.aFloor = aFloor;
+	}
+
+	public String getaApartment() {
+		return aApartment;
+	}
+
+	public void setaApartment(String aApartment) {
+		this.aApartment = aApartment;
+	}
+
+	public String getExpenses() {
+		return expenses;
+	}
+
+	public void setExpenses(String expenses) {
+		this.expenses = expenses;
+	}
+
+	public Integer getExpensesValue() {
+		return expensesValue;
+	}
+
+	public void setExpensesValue(Integer expensesValue) {
+		this.expensesValue = expensesValue;
+	}
+
+	public String getaAditionalInfo() {
+		return aAditionalInfo;
+	}
+
+	public void setaAditionalInfo(String aAditionalInfo) {
+		this.aAditionalInfo = aAditionalInfo;
+	}
 	
-	
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
+	}
+
+	public MultipartFile getImage() {
+		return image;
+	}
+
+	public void setImage(MultipartFile image) {
+		this.image = image;
+}
+
+
 }

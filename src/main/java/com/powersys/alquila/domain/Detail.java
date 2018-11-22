@@ -16,6 +16,12 @@ public class Detail {
 	private String name;
 	
 	private String value;
+	
+	
+	public Detail() {
+		// TODO Auto-generated constructor stub
+	}
+		
 	public Long getId() {
 		return id;
 	}

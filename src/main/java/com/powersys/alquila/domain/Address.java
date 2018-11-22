@@ -21,6 +21,12 @@ public class Address {
 	
 	private String number;
 	
+	private String floor;
+	
+	private String apartment;
+	
+	private String aditionalInfo;
+	
 	@OneToMany
 	private List<Detail> details;
 
@@ -54,5 +60,29 @@ public class Address {
 
 	public void setDetails(List<Detail> details) {
 		this.details = details;
+	}
+
+	public String getFloor() {
+		return floor;
+	}
+
+	public void setFloor(String floor) {
+		this.floor = floor;
+	}
+
+	public String getApartment() {
+		return apartment;
+	}
+
+	public void setApartment(String apartment) {
+		this.apartment = apartment;
+	}
+
+	public String getAditionalInfo() {
+		return aditionalInfo;
+	}
+
+	public void setAditionalInfo(String aditionalInfo) {
+		this.aditionalInfo = aditionalInfo;
 	}
 }

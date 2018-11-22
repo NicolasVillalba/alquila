@@ -35,15 +35,15 @@ public class PlaceDetailServiceImpl implements PlaceDetailService {
 		PropertyDTO pd = new PropertyDTO();
 				 pd.setaStreet(p.getAdress().getStreet());
 				 pd.setaNumber(p.getAdress().getNumber());
-				 pd.setDescription(p.getDescription());
-				 pd.setPhotos(Arrays.asList(photos));
-				 pd.setPlaceType(pt);
-				 pd.setPrice(Integer.toString(p.getPrice()));
-				 pd.setRooms("3");
-				 pd.getaDetails().add(new DetailDTO("Edificio", "Constelación"));
-				 pd.getaDetails().add(new DetailDTO("Piso", "6"));
-				 pd.getaDetails().add(new DetailDTO("Dto", "B"));
-				 pd.getaDetails().add(new DetailDTO("Otros", "A 200 mts de la xxx, frente a la xxx de xxx."));
+				 
+//				 pd.setPhotos(Arrays.asList(photos));
+//				 pd.setPlaceType(pt);
+//				 pd.setPrice((p.getPrice()));
+//				 pd.setRooms("3");
+//				 pd.getaDetails().add(new DetailDTO("Edificio", "Constelación"));
+//				 pd.getaDetails().add(new DetailDTO("Piso", "6"));
+//				 pd.getaDetails().add(new DetailDTO("Dto", "B"));
+//				 pd.getaDetails().add(new DetailDTO("Otros", "A 200 mts de la xxx, frente a la xxx de xxx."));
 //				 pd.getpDetails().add(new DetailDTO("Baño", "En la suite principal"));
 //				 pd.getpDetails().add(new DetailDTO("Garaje", "Sin techo"));
 //				 pd.getpDetails().add(new DetailDTO("Patio", "Con pileta"));
@@ -51,7 +51,7 @@ public class PlaceDetailServiceImpl implements PlaceDetailService {
 				 
 				for(Detail d : p.getDetails()) {
 						DetailDTO dto = new DetailDTO(d.getName(), d.getValue());
-						pd.getpDetails().add(dto);
+//						pd.getpDetails().add(dto);
 				}
 				
 				for(Detail d : p.getLegals()) {

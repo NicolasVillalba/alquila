@@ -16,7 +16,7 @@
 <body>
 	<main>
 	<h1>CREAR ANUNCIO</h1>
-	<form id="form" class="firstcontainer" th:action="@{/cargarInmueble}" th:object="${inmueble}" method="post">
+	<form id="form" class="firstcontainer" th:action="@{/cargarInmueble}" th:object="${inmueble}" method="post" enctype="multipart/form-data">
 		<div class="tab" id="pag1">
 			<div class="inmueble">
 				<h2>Tipo de inmueble que vas a publicar</h2>
@@ -34,7 +34,7 @@
 					<div class="sub alquiler_container">
 						<label for="monto" id="alquilermonto">Monto*</label> <span
 							id="spanmonto">$<input type="number" step="any" id="monto"
-							oninput="this.className = ''" th:field="*{price}"/></span>
+						    th:field="*{price}"/></span>
 
 						<div class="expensasbuttons">
 							<input type="radio" class="monto" name="monto" id="sinexp"
@@ -70,14 +70,14 @@
 					<div class="inputcontainer">
 						<div class="Custominp2">
 							<label for="inp2" class="inp2"> <input type="text"
-								id="inp2" placeholder="&nbsp;"/> <span class="label">Departamento</span>
+								id="departamento" placeholder="&nbsp;"/> <span class="label">Departamento</span>
 								<span class="border"></span>
 							</label>
 						</div>
 
 						<div class="Custominp2">
 							<label for="inp2" class="inp2"> <input type="text"
-								id="inp2" placeholder="&nbsp;"/> <span class="label">Piso</span>
+								id="piso" placeholder="&nbsp;"/> <span class="label">Piso</span>
 								<span class="border"></span>
 							</label>
 						</div>
@@ -122,7 +122,7 @@
 												class="check" type="radio" id="gno" name="garante"
 												value="false" checked="checked"/><label for="gno"></label></td>
 											<td class="column100 column4" data-column="column4"></td>
-											<input type="hidden" id="inputGarante" th:field="*{Guarantor}"/>
+											<input type="hidden" id="inputGarante" th:field="*{guarantor}"/>
 										</tr>
 
 										<tr class="row100">
@@ -134,7 +134,7 @@
 												class="check" type="radio" id="eno" name="escribania"
 												value="false" checked="checked"/><label for="eno"></label></td>
 											<td class="column100 column4" data-column="column4"></td>
-											<input type="hidden" id="inputEscribania" th:field="*{Notary}"/>
+											<input type="hidden" id="inputEscribania" th:field="*{notary}"/>
 										</tr>
 
 										<tr class="row100">
@@ -146,7 +146,7 @@
 												class="check" type="radio" id="cno" name="contrato"
 												value="false" checked="checked"/><label for="cno"></label></td>
 											<td class="column100 column4" data-column="column4"></td>
-											<input type="hidden" id="inputContrato" th:field="*{Contract}"/>
+											<input type="hidden" id="inputContrato" th:field="*{contract}"/>
 										</tr>
 
 										<tr class="row100">
@@ -161,8 +161,8 @@
 											<td class="column100 column4" data-column="column4"><label
 												for="gastosc">$</label><input type="number" step="any"
 												name="deposito" value="monto" class="inputnumber"
-												id="gastosc" style="width: 95%" /></td>
-											<input type="text" id="inputGastosContrato" th:field="*{ContractExpenses}"/>
+												id="gastosc" style="width: 95%" th:field="*{contractExpensesValue}"/></td>
+											<input type="hidden" id="inputGastosContrato" th:field="*{contractExpenses}"/>
 										</tr>
 
 										<tr class="row100">
@@ -177,8 +177,8 @@
 											<td class="column100 column4" data-column="column4"><label
 												for="deposito">$</label><input type="number" step="any"
 												name="deposito" value="monto" class="inputnumber"
-												id="deposito" style="width: 95%" /></td>
-											<input type="hidden" id="inputDepositoInicial" th:field="*{InitialDeposit}"/>
+												id="deposito" style="width: 95%" th:field="*{initialDepositValue}" /></td>
+											<input type="hidden" id="inputDepositoInicial" th:field="*{initialDeposit}"/>
 										</tr>
 									</tbody>
 
@@ -189,7 +189,7 @@
 						</div>
 					</div>
 					<textarea type="text" name="ingresartexto"
-						placeholder="Más información sobre las condiciones legales requeridas..." th:field="*{AditionalLegalInfo}"></textarea>
+						placeholder="Más información sobre las condiciones legales requeridas..." th:field="*{aditionalLegInfo}"></textarea>
 
 				</div>
 
@@ -202,18 +202,18 @@
 								class="toggle icon icon-arrow-down"></i> <i
 								class="toggle icon icon-arrow-up"></i> <span class="placeholder">Ambientes</span>
 							<label class="option"> <input type="radio" name="option2"
-								value="" checked="checked"/> <span class="title"><i class=""></i>Monoambiente</span>
+								value="" checked="checked" id="monoambiente"/> <span class="title"><i class=""></i>Monoambiente</span>
 							</label> <label class="option"> <input type="radio"
-								name="option2" value="1" checked="checked"/> <span class="title"><i
+								name="option2" value="1" checked="checked" id="1amb"/> <span class="title"><i
 									class=""></i>1</span>
 							</label> <label class="option"> <input type="radio"
-								name="option2" value="2"/> <span class="title"><i
+								name="option2" value="2" id="2amb"/> <span class="title"><i
 									class=""></i>2</span>
 							</label> <label class="option"> <input type="radio"
-								name="option2" value="3"/> <span class="title"><i
+								name="option2" value="3" id="3amb"/> <span class="title"><i
 									class=""></i>3</span>
 							</label> <label class="option"> <input type="radio"
-								name="option2" vale="4"/> <span class="title"><i
+								name="option2" vale="4" id="4amb"/> <span class="title"><i
 									class=""></i>4 o más</span>
 							</label>							
 						</div>
@@ -236,44 +236,44 @@
 											adicional</td>
 										<td class="column100 column2" data-column="column2"><input
 											class="check" type="radio" id="bsi" name="bano" value="true"
-											checked="checked"/><label for="bsi"></label></td>
+											/><label for="bsi"></label></td>
 										<td class="column100 column3" data-column="column3"><input
-											class="check" type="radio" id="bno" name="bano" value="false"/><label
+											class="check" type="radio" id="bno" name="bano" value="false" checked="checked"/><label
 											for="bno"></label></td>
-									<input type="hidden" id="inputBañoAdicional" th:field="*{AditionalBathroom}" />
+									<input type="hidden" id="inputBañoAdicional" th:field="*{aditionalBathroom}" />
 									</tr>
 
 									<tr class="row100">
 										<td class="column100 column1" data-column="column1">Garage</td>
 										<td class="column100 column2" data-column="column2"><input
 											class="check" type="radio" id="grsi" name="garage"
-											value="true" checked="checked"/><label for="grsi"></label></td>
+											value="true" /><label for="grsi"></label></td>
 										<td class="column100 column3" data-column="column3"><input
 											class="check" type="radio" id="grno" name="garage"
-											value="false"/><label for="grno"></label></td>
-										<input type="hidden" id="inputGarage" th:field="*{Garage}" />
+											value="false" checked="checked"/><label for="grno"></label></td>
+										<input type="hidden" id="inputGarage" th:field="*{garage}" />
 									</tr>
 
 									<tr class="row100">
 										<td class="column100 column1" data-column="column1">Balcón</td>
 										<td class="column100 column2" data-column="column2"><input
 											class="check" type="radio" id="lsi" name="balcon"
-											value="true" checked="checked"/><label for="lsi"></label></td>
+											value="true" /><label for="lsi"></label></td>
 										<td class="column100 column3" data-column="column3"><input
 											class="check" type="radio" id="lno" name="balcon"
-											value="false"/><label for="lno"></label></td>
-										<input type="hidden" id="inputBalcon" th:field="*{Balcony}" />
+											value="false" checked="checked"/><label for="lno"></label></td>
+										<input type="hidden" id="inputBalcon" th:field="*{balcony}" />
 									</tr>
 
 									<tr class="row100">
 										<td class="column100 column1" data-column="column1">Patio</td>
 										<td class="column100 column2" data-column="column2"><input
 											class="check" type="radio" id="psi" name="patio" value="true"
-											checked="checked"/><label for="psi"></label></td>
+											/><label for="psi"></label></td>
 										<td class="column100 column3" data-column="column3"><input
 											class="check" type="radio" id="pno" name="patio"
-											value="false"/><label for="pno"></label></td>
-										<input type="hidden" id="inputPatio" th:field="*{Yard}" />
+											value="false" checked="checked"/><label for="pno"></label></td>
+										<input type="hidden" id="inputPatio" th:field="*{yard}" />
 									</tr>
 								</tbody>
 
@@ -283,7 +283,7 @@
 
 					</div>
 					<textarea type="text" name="ingresartexto" id="descripcion"
-						placeholder="Añade una descripción del inmueble..." th:field="*{AditionalPropertyInfo}"></textarea>
+						placeholder="Añade una descripción del inmueble..." th:field="*{AditionalProInfo}"></textarea>
 
 				</div>
 			</div>
@@ -296,7 +296,7 @@
 					<div class="imageUpload1">
 						<img class="image" id="div1" src="#" alt="" style="display: none" />
 						<input type='file' onchange="readURL1(this);" id="imageUpload1"
-							accept=".png, .jpg, .jpeg" set-to="div1" style="display: none;" />
+							accept=".png, .jpg, .jpeg" set-to="div1" style="display: none;"  th:field="*{image}"/>
 						<label for="imageUpload1"></label> <label
 							for="imageUploadpreview1"></label>
 						<div id="thumb1"></div>

@@ -16,6 +16,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.thymeleaf.dom.Text;
+
 @Entity
 @Table(name = "property")
 public class Property {
@@ -30,7 +32,11 @@ public class Property {
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	private Owner owner;
 
-	private String description;
+	@OneToOne(cascade = CascadeType.PERSIST)
+	private PropertyDetail propertyDetail;
+	
+	@OneToOne(cascade = CascadeType.PERSIST)
+	private LegalDetail legalDetail;
 	
 	@OneToMany(cascade = CascadeType.PERSIST)
 	private List<Detail> details;
@@ -39,9 +45,14 @@ public class Property {
 	private List<Detail> legals;
 
 	private Integer price;
-
-	@Enumerated(EnumType.STRING)
-	private PlaceType type;
+		
+	private String type;
+	
+	private String expenses;
+	
+	private Integer expensesValue;
+	
+	private String image;
 
 	@ElementCollection
 	private List<String> images = new ArrayList<>();
@@ -69,13 +80,21 @@ public class Property {
 	public void setOwner(Owner owner) {
 		this.owner = owner;
 	}
-
-	public String getDescription() {
-		return description;
+	
+	public PropertyDetail getPropertyDetail() {
+		return propertyDetail;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setPropertyDetail(PropertyDetail propertyDetail) {
+		this.propertyDetail = propertyDetail;
+	}
+	
+	public LegalDetail getLegalDetail() {
+		return legalDetail;
+	}
+
+	public void setLegalDetail(LegalDetail legalDetail) {
+		this.legalDetail = legalDetail;
 	}
 
 	public List<Detail> getDetails() {
@@ -102,11 +121,11 @@ public class Property {
 		this.price = price;
 	}
 
-	public PlaceType getType() {
+	public String getType() {
 		return type;
 	}
 
-	public void setType(PlaceType type) {
+	public void setType(String type) {
 		this.type = type;
 	}
 
@@ -117,4 +136,37 @@ public class Property {
 	public void addImage(String imageUrl) {
 		this.images.add(imageUrl);
 	}
+
+	public void getDetails(String name, String value) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getExpenses() {
+		return expenses;
+	}
+
+	public void setExpenses(String expenses) {
+		this.expenses = expenses;
+	}
+
+	public Integer getExpensesValue() {
+		return expensesValue;
+	}
+
+	public void setExpensesValue(Integer expensesValue) {
+		this.expensesValue = expensesValue;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	
+
+	
 }

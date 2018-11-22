@@ -176,16 +176,7 @@ function fixStepIndicator(n) {
 // asociated ---------------------------------------------
 
 
-document.getElementById('casa').onclick = function() {
-	$("#departamento").val('');
-	$("#piso").val('');
-	$("#departamento").prop('disabled', true);
-	$("#piso").prop("disabled", true);
-};
-document.getElementById('dpto').onclick = function() {
-	$("#departamento").removeAttr('disabled');
-	$("#piso").removeAttr('disabled');
-};
+
 
 
 //--------------------------
@@ -228,9 +219,15 @@ document.getElementById('dsi').onclick = function() {
 $('#inputTipo').val('DEPARTAMENTO');
 document.getElementById('casa').onclick = function() {
 	$("#inputTipo").val('CASA');
+	$("#departamento").val('');
+	$("#piso").val('');
+	$("#departamento").prop("disabled", true);
+	$("#piso").prop("disabled", true);
 };
 document.getElementById('dpto').onclick = function(){
 	$('#inputTipo').val('DEPARTAMENTO');
+	$("#departamento").removeAttr('disabled');
+	$("#piso").removeAttr('disabled');
 };
 
 //----------------------------------Cantidad ambientes ---------------------------------
@@ -277,18 +274,18 @@ document.getElementById('cno').onclick = function() {
 };
 
 $("#inputGastosContrato").val('NO');
-document.getElementById('prevBtn').onclick = function() {
-	$("#inputGastosContrato").val('SI - ' + $("#gastosc").val());
+document.getElementById('gcsi').onclick = function() {
+	$("#inputGastosContrato").val('SI');
 };
 document.getElementById('gcno').onclick = function() {
 	$("#inputGastosContrato").val('NO');
 };
 
 $("#inputDepositoInicial").val('NO');
-document.getElementById('prevBtn').onclick = function() {
-	$("#inputDepositoInicial").val('SI - ' + $("#deposito").val());
+document.getElementById('dsi').onclick = function() {
+	$("#inputDepositoInicial").val('SI');
 };
-document.getElementById('gcno').onclick = function() {
+document.getElementById('dno').onclick = function() {
 	$("#inputDepositoInicial").val('NO');
 };
 
@@ -323,3 +320,4 @@ document.getElementById('psi').onclick = function() {
 document.getElementById('pno').onclick = function() {
 	$("#inputPatio").val('NO');
 };
+$("#descripcion").val("");
