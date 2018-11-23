@@ -1,136 +1,354 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-<head>
-<title>Detalles</title>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link th:href="@{/css/detalles.css}" rel="stylesheet" type="text/css" />
-</head>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans|Lato" rel="stylesheet"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" th:href="@{/css/table_detalles.css}"/>
+    <script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+  </head>
+  <body th:object="${property}">
+    <div class="wrap" id="wrap">
+      <header class="header">
+        <div class="header_container">
+          <div class="logo">
+          <a class="header logo" href="http://localhost:9002"><img th:src="@{/img/alquila.png}"/></a>
+        </div>
+          <div class="buttons">
+            <div class="btn_container">
+            <input type="checkbox" id="buscador" class="buscar" name="btn"/>
+              <label for="buscador"></label>
+              <span class="btn_buscar">BUSCAR</span>
+          </div>
+            <div class="btn_container">
+            <input type="checkbox" id="crear_anuncio" name="btn" class="crear"/>
+              <label for="crear_anuncio"></label>
+              <span class="btn_crear">CREAR ANUNCIO</span>
+          </div>
+          </div>
+      </div>
+      </header>
+      <div class="top-header">
+      </div>
 
-<body th:object="${property}">
-	<div class="nav" id="navbar">
-		<div class="ContainerNavbar">
-			<a href="#" class="iconnav">
-				<img th:src="@{/image/alquila.png}" id="marca" />
-			</a>
-			<div class="buttons">
-				<a name="btnB" href="#"><input type="button" name="Crearanuncio" id="buscar" />
-				<label for="buscar" name="label" id="buscador">BUSCAR</label></a>
-				<a name="btnC" th:href="@{/property/add}"><input type="button"
-					name="Crear anuncio" id="anuncio" /><label for="anuncio"
-					name="label" id="formulario">CREAR ANUNCIO</label></a>
-			</div>
-		</div>
-	</div>
-	<div class="Imagecontainer">
-		<div class="image1"></div>
-		<div class="image2">
-			<img />
-		</div>
-		<div class="image3"></div>
-		<div class="image4"></div>
-		<div class="image5"></div>
-	</div>
-	<div class="Container">
-		<div class="GridContainer">
-			<div class="ContactInfo">
-				<ul>
-					<li>Teléfono</li>
-					<li>Correo</li>
-					<li>Dirección</li>
-					<li>Redes sociales</li>
-				</ul>
-			</div>
-			<div class="basicdata">
-				<div class="rent">
-					<span class="tags" name="departamento">DEPARTAMENTO</span> <span
-						class="title">ALQUILER MONTO</span><span
-						th:text="'$' + *{price}" id="alquiler"></span> <span
-						class="title">EXPENSAS</span><span id="expensas">$6000</span>
-				</div>
-				<div class="datacontainer">
-					<div class="rooms">
-						<label class="subtitle"><span>ZONAS</span></label> <label><span
-							name="zonas" th:text="*{rooms} + ' Ambientes'"></span></label> <label><span
-							name="zonas">2 Dormitorios</span></label>
-					</div>
-					<div class="services">
-						<label class="subtitle">
-							<span>SERVICIOS</span>
-						</label>
-						<!-- xxxx -->
-						<th:block th:each="dt : *{pDetails}">
-							<input class="check" name="baño" th:id="${dt.name}" type="checkbox" th:value="${dt.name}" checked="checked" />
-						    <label th:for="${dt.name}">
-						    	<span class="servicios" th:text="${dt.name}">Baño adicional</span>
-						    </label>
-					    </th:block>
-					    <!-- xxxx --> 
-						<div>
-							<label>
-								<p name="otros">
-									<span name="text">Otros:</span>
-									<span>Incluye termotanque y bajomesada</span>
-								</p>
-							</label>
-						</div>
-					</div>
-					<hr />
-					<div class="address">
-						<label class="subtitle">
-							<span id="direccion">DIRECCIÓN</span>
-						</label>
-						<span class="dire" th:text="*{aStreet}" ></span>
-						<p name="otros" th:each="d : *{aDetails}">
-							<span name="text" th:text="${d.name}"></span>
-						</p>
-					</div>
-				</div>
-			</div>
-			<div class="LegalInfo">
-				<h2>INFORMACIÓN LEGAL</h2>
-				<p th:text="*{description}">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-					do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-					enim ad minim veniam, quis nostrud exercitation ullamco laboris
-					nisi ut.
-				</p>
-				<hr />
-			</div>
-			<div class="tagscontainer">
-				<span name="tags">#Mascotas</span> <span name="tags">#ConExpensas</span>
-				<span name="tags">#Garante</span> <span name="tags">#Mascotas</span>
-			</div>
-		</div>
-		<footer>
-			<div class="footer">
-				<div class="footercontainer">
-					<ul>
-						<li>¿Quienes somos?</li>
-						<li>Preguntas frecuentes</li>
-						<li>Terminos y condiciones de uso</li>
-						<li>Crear anuncio</li>
-					</ul>
-					<div class="redes">
-						<span>Comunicate con nosotros</span>
-						<div class="icons">
-							<a href="#"><img th:src="@{/image/003-facebook.png}" /></a>
-							<a href="#"><img th:src="@{/image/002-twitter.png}" /></a>
-							<a href="#"><img th:src="@{/image/001-gmail.png}" /></a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</footer>
-	</div>
-	<script>
-        $('input[type="checkbox"]').on('change', function() {
-            $('input[name="' + this.name + '"]').not(this).prop('checked', false);
-        });
-    </script>
-</body>
+      <div class="search">
+        <div class="image1"></div>
+        <div class="image2"></div>
+        <div class="image3"></div>
+        <div class="image4"></div>
+        <div class="image5"></div>
+      </div>
+    
+      <div class="top" id="back">
+      </div>
+      <div class="buscador">
+        <div class="buscador_container">
+        <div class="dropdown container">
+          <div class="select2">
+            <input type="radio" name="option2"/>
+            <i class="toggle icon icon-arrow-down"></i>
+            <i class="toggle icon icon-arrow-up"></i>
+            <span class="placeholder">Tipo de inmueble...</span>
+            <label class="option">
+              <input type="radio" name="option2" value=""/>
+              <span class="title"><i class=""></i>Todos</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="option2" value=""/>
+              <span class="title"><i class=""></i>Departamento</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="option2" value="1"/>
+              <span class="title"><i class=""></i>Casa</span>
+            </label>
+          </div>
+
+          <div class="select2">
+            <input type="radio" name="option3"/>
+            <i class="toggle icon icon-arrow-down"></i>
+            <i class="toggle icon icon-arrow-up"></i>
+            <span class="placeholder">Monto del alquiler...</span>
+            <label class="option">
+              <input type="radio" name="option3" value=""/>
+              <span class="title"><span class=""></span>Todos</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="option3" value="5000"/>
+              <span class="title"><span class=""></span>Hasta $5000</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="option3" value="10000"/>
+              <span class="title"><span class=""></span>Hasta $10000</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="option3" value="15000"/>
+              <span class="title"><span class=""></span>Hasta $15000</span>
+            </label>
+          </div>
+
+          <div class="select2">
+            <input type="radio" name="option4"/>
+            <i class="toggle icon icon-arrow-down"></i>
+            <i class="toggle icon icon-arrow-up"></i>
+            <span class="placeholder">Cantidad de ambientes</span>
+            <label class="option">
+              <input type="radio" name="option4" value=""/>
+              <span class="title"><i class=""></i>Monoambiente</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="option4" value="1"/>
+              <span class="title"><i class=""></i>1</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="option4" value="2"/>
+              <span class="title"><i class=""></i>2</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="option4" value="3"/>
+              <span class="title"><i class=""></i>3</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="option4" vale="4"/>
+              <span class="title"><i class=""></i>4 o más</span>
+            </label>
+          </div>
+
+          <div class="select2">
+            <input type="radio" name="option5"/>
+            <i class="toggle icon icon-arrow-down"></i>
+            <i class="toggle icon icon-arrow-up"></i>
+            <span class="placeholder">Tipo de dueño...</span>
+            <label class="option">
+              <input type="radio" name="option5" value=""/>
+              <span class="title"><i class=""></i>Propietario</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="option5" value="1"/>
+              <span class="title"><i class=""></i>Inmobiliaria</span>
+            </label>
+          </div>
+<button id="buscar">BUSCAR</button>
+        </div>
+      </div>
+      </div>
+      <main>
+        <div id="block1">
+
+            <div class="rent">
+              <span class="tags" id="dpto" th:text="*{placeType}"></span>
+              <span class="tags2">ALQUILER</span><span class="text_rent" th:text="*{price}"></span>
+              <span class="tags2">EXPENSAS</span><span class="text_rent">$6000</span>
+              <span class="tags2">AMBIENTES</span><span class="text_rent"></span>
+            </div>
+          
+                  <div class="table100 ver2">
+                    <table data-vertable="ver2">
+                      <thead>
+
+                      <tbody>
+
+                        <tr class="row100" id="col1_row1">
+                          <td class="column100 column1" data-column="column1" id="row1"><span class="icons2" id="detalles"></span><span id="detalle_txt">DETALLES</span></td>
+                          <td class="column100 column2" data-column="column2" id="row2">
+                            <span id="banoad"><span class="check"></span><span class="text_detalles">Baño adicional</span></span>
+                            <span id="garage"><span class="check"></span><span class="text_detalles">Garage</span></span>
+                            <span id="balcon"><span class="check"></span><span class="text_detalles">Balcón</span></span>
+                            <span id="patio"><span class="check"></span><span class="text_detalles">Patio</span></span>
+                          </td>
+                        </tr>
+
+                        <tr class="row100">
+                          <td class="column100 column1" data-column="column1" id="row1"></td>
+                          <td class="column100 column2" data-column="column2"><span class="text">Otros:</span><span class="text2">Incluye termotanque y bajomesada</span></td>
+                        </tr>
+
+                        <tr class="row100" id="col1_row2">
+                          <td class="column100 column1" data-column="column1" id="direccion"><span class="icons2" id="direccioni"></span>
+                            <span id="direccion_txt">DIRECCIÓN</span>
+                            
+                         </td>
+                          <td class="column100 column2" data-column="column2" id="direccion2" >
+                            <span class="text">Calle:</span><span class="text2">Av. Libertad</span> 
+                            <span class="text">Altura:</span><span class="text2">5215</span>
+                            <span class="text">Departamento:</span><span class="text2">A</span>
+                            <span class="text">Piso:</span><span class="text2">2</span>
+                          </td>
+                        </tr>
+
+                        <tr class="row100">
+                          <td class="column100 column1" data-column="column1" id="row2"></td>
+                          <td class="column100 column2" data-column="column2" >
+                            <span class="text">Otros:</span><span class="text2"> A 200  mts de la UNNE, frente a la facultad de ingeniería.</span>
+                          </td>
+                        </tr>
+                      </tbody>
+                      </thead>
+
+
+                    </table>
+
+                  </div>
+          
+          <div class="text_container">
+            <div class="descripcion">
+              <div class="descripcion_text">
+                <span id="descripcion_icon"></span>
+            <h2>DESCRIPCIÓN</h2>
+            </div>
+            <p>Lorem ipsum dolor amet everyday carry kogi kitsch glossier affogato. Meh neutra woke narwhal. Salvia meditation lomo single-origin coffee lyft chartreuse XOXO synth beard paleo hella. XOXO authentic hell of locavore paleo.</p>
+          </div>
+            <div class="infolegal">
+              <div class="legal_text">
+                <span id="legal_icon"></span>
+                <h2>INFORMACIÓN LEGAL</h2>
+              </div>
+            <p>Lorem ipsum dolor amet everyday carry kogi kitsch glossier affogato. Meh neutra woke narwhal. Salvia meditation lomo single-origin coffee lyft chartreuse XOXO synth beard paleo hella. XOXO authentic hell of locavore paleo.</p>
+          </div>
+          </div>
+          
+          <div class="table102 ver3">
+
+            <table data-vertable="ver" id="servicios">
+              <thead>
+                <tr class="row100 head">
+                  <th class="column102 column1" data-column="column1"></th>
+                  <th class="column102 column2" data-column="column2">Si</th>
+                  <th class="column102 column3" data-column="column3">No</th>
+                  <th class="column102 column3" data-column="column4"></th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr class="row100">
+                  <td class="column102 column1" data-column="column1">Garante</td>
+                  <td class="column102 column2" data-column="column2"><span id="grsi1"><span class="true"></span></span><span class="false"></span></td>
+                  <td class="column102 column3" data-column="column3"><span id="grsi2"><span class="true"></span></span><span class="false"></span></td>
+                  <td class="column102 column4" data-column="column4"></td>
+                </tr>
+
+                <tr class="row100">
+                  <td class="column102 column1" data-column="column1">Escribanía</td>
+                  <td class="column102 column2" data-column="column2"><span id="esi1"><span class="true"></span></span><span class="false"></span></td>
+                  <td class="column102 column3" data-column="column3"><span id="esi2"><span class="true"></span></span><span class="false"></span></td>
+                  <td class="column102 column4" data-column="column4"></td>
+                </tr>
+
+                <tr class="row100">
+                  <td class="column102 column1" data-column="column1">Contrato</td>
+                  <td class="column102 column2" data-column="column2"><span id="csi1"><span class="true"></span></span><span class="false"></span></td>
+                  <td class="column102 column3" data-column="column3"><span id="csi2"><span class="true"></span></span><span class="false"></span></td>
+                  <td class="column102 column4" data-column="column4"></td>
+                </tr>
+
+                <tr class="row100">
+                  <td class="column102 column1" data-column="column1">Gastos de contrato</td>
+                  <td class="column102 column2" data-column="column2"><span id="gcsi1"><span class="true"></span></span><span class="false"></span></td>
+                  <td class="column102 column3" data-column="column3"><span id="gcsi2"><span class="true"></span></span><span class="false"></span></td>
+                  <td class="column102 column4" data-column="column4"><span>$</span><span>12345</span></td>
+                </tr>
+
+                <tr class="row100">
+                  <td class="column102 column1" data-column="column1">Depósito inicial</td>
+                  <td class="column102 column2" data-column="column2"><span id="dsi1"><span class="true"></span></span><span class="false"></span></td>
+                  <td class="column102 column3" data-column="column3"><span id="dsi2"><span class="true"></span></span><span class="false"></span></td>
+                  <td class="column102 column4" data-column="column4"><span>$</span><span>12345</span></td>
+                </tr>
+
+                <tr class="row100">
+                  <td colspan="4" class="column100 column1" data-column="column1" id="otros">Otros:<span class="text_otros">Lorem ipsum dolor amet everyday</span></td>
+                </tr>
+                
+              </tbody>
+              
+
+            </table>
+          </div>
+
+                </div>
+        <div id="block2">
+          <div class="contacto2">
+            <div class="contact_info">
+          <div class="contact_img" id="inmobiliaria"></div>
+            <span class="tipo_usuario">INMOBILIARIA</span>
+          </div>
+            <div class="user_name">
+              <span Class="user_text">Urbano Inmobiliaria</span>
+            </div>
+            <div class="contact_info3">
+              <span class="usuario">NÚMERO DE CONTACTO</span>
+              <span class="user_text">3762-509020</span>
+            </div>
+            <div class="social_icons2">
+              <a href="https://www.facebook.com/urbanoinmobiliaria/">
+                <span id="face_icon1"></span>
+              </a>
+
+              <a class="insta" href="urbanoinmobiliariarcia"> <span id="insta_icon1"></span></a>
+
+              <a href="http://www.urbanoinmobiliaria.com.ar"><span id="web_icon1"></span></a>
+
+              <a href="#"><span id="twitter_icon1"></span></a>
+
+              <a href="urbanoinmobiliaria@gmail.com"><span id="mail_icon1"></span></a>
+
+            </div>
+          </div>
+          <div class="contacto">
+            <div class="contact_info">
+              <div class="contact_img" id="propietario"></div>
+              <span class="tipo_usuario">PROPIETARIO</span>
+            </div>
+            <div class="user_name">
+            <span>Federico De Pedro</span>
+          </div>
+            <div class="contact_info2">
+              <span class="usuario">NÚMERO DE CONTACTO</span>
+              <span class="user_text">362-4968866</span>
+            </div>
+            <div class="social_icons2">
+              <a href="https://www.facebook.com/federico.depedro/about?lst=1480561616%3A538237339%3A1542699852">
+                <span id="face_icon2"></span>
+              </a>
+
+              <a class="insta" href="#"><span id="insta_icon2"></span></a>
+
+              <a href="#"><span id="web_icon2"></span></a>
+              
+              <a href="#"><span id="twitter_icon2"></span></a>
+              
+              <a href="#"><span id="mail_icon2"></span></a>
+
+            </div>
+          </div>
+        </div>
+      </main>
+      <div class="wrap2"></div>
+<footer class="footer">
+  <div class="footer_container">
+    <div class="Links">
+      <a href="#"><span class="footer_links">Sobre nosotros...</span></a>
+      <a href="#"><span class="footer_links">Terminos y condiciones</span></a>
+      <br/>
+      <a href="#"><span class="footer_links">Buscar</span></a>
+      <a href="#"><span class="footer_links">Crear anuncio...</span></a>
+    </div>
+    <div class="suscribe">
+      <h2>NEWSLETTER</h2>
+      <p>Ingresá tu email, para recibir notificaciones e información sobre las últimas propiedades agregadas para enontrarte con la que será tu próximo alquiler.</p>
+      <div class="input_sus">
+      <input type="email" placeholder="alquila@gmail.com" id="suscripcion"/>
+      <button>ENVIAR</button>
+    </div>
+      <div class="social_links">
+        <a href="https://www.facebook.com/"><span class="social" id="face"></span></a>
+        <a href="https://www.google.com/gmail/"><span class="social" id="gmail"></span></a>
+        <a href="https://twitter.com/?lang=es"><span class="social" id="twitter"></span></a>
+      </div>
+    </div>
+  </div>
+      </footer>
+    </div>
+    <script th:src="@{/js/mainDetails.js}"></script>
+  </body>
 </html>

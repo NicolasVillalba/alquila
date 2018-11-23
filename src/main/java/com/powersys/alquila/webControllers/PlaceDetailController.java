@@ -40,7 +40,7 @@ public class PlaceDetailController {
 	}
 	
 	@PostMapping("/add")
-	public String altaInmueble(@ModelAttribute InmuebleDTO inmuebleDTO) {
+	public String altaInmueble(@ModelAttribute PropertyDTO inmuebleDTO) {
 		this.inmuebleService.insertInmueble(inmuebleDTO);
 		return "redirect:add";
 	}

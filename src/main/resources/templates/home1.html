@@ -6,13 +6,13 @@
     <title>Home</title>
     <link rel="stylesheet" type="text/css" th:href="@{css/home.css}" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script th:src="@{/js/jquery-3.3.1.min.js}"></script>
     <meta charset="UTF-8" />
 </head>
 <body>
 <div class="nav" id="navbar">
         <div class="ContainerNavbar">
-            <a href="#" class="iconnav"><img src="img/alquila.png" id="marca" /></a>
+            <a href="#" class="iconnav"><img th:src="@{/img/alquila.png}" id="marca" /></a>
             <div class="buttons">
             <a name="btnC" th:href="@{/property/add}">
 	            <input type="button" name="Crear anuncio" id="anuncio" />
@@ -74,9 +74,9 @@
                     </ul>
                         <div class="redes">
                         <span>Comunicate con nosotros</span>
-                        <div class="icons"><a href="#"><img src="img/003-facebook.png" /></a>
-                     <a href="#"><img src="img/002-twitter.png" /></a>
-                     <a href="#"><img src="img/001-gmail.png" /></a>
+                        <div class="icons"><a href="#"><img th:src="@{/img/003-facebook.png}" /></a>
+                     <a href="#"><img th:src="@{/img/002-twitter.png}" /></a>
+                     <a href="#"><img th:src="@{/img/001-gmail.png}" /></a>
                      </div>
                     </div>
                 </div>

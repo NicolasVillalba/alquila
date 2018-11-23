@@ -33,8 +33,16 @@ public class PropertyDTO {
 	private String initialDeposit;
 	private Integer initialDepositValue;	
 	private String aditionalLegInfo;
-	private MultipartFile image;	
+	private MultipartFile image;
+	private MultipartFile image2;
+	private MultipartFile image3;
+	private MultipartFile image4;
+	private MultipartFile image5;
 	private String path;
+	private String path2;
+	private String path3;
+	private String path4;
+	private String path5;
 	
 	
 	
@@ -281,6 +289,70 @@ public class PropertyDTO {
 	public void setImage(MultipartFile image) {
 		this.image = image;
 }
+
+	public MultipartFile getImage2() {
+		return image2;
+	}
+
+	public void setImage2(MultipartFile image2) {
+		this.image2 = image2;
+	}
+
+	public MultipartFile getImage3() {
+		return image3;
+	}
+
+	public void setImage3(MultipartFile image3) {
+		this.image3 = image3;
+	}
+
+	public MultipartFile getImage4() {
+		return image4;
+	}
+
+	public void setImage4(MultipartFile image4) {
+		this.image4 = image4;
+	}
+
+	public MultipartFile getImage5() {
+		return image5;
+	}
+
+	public void setImage5(MultipartFile image5) {
+		this.image5 = image5;
+	}
+
+	public String getPath2() {
+		return path2;
+	}
+
+	public void setPath2(String path2) {
+		this.path2 = path2;
+	}
+
+	public String getPath3() {
+		return path3;
+	}
+
+	public void setPath3(String path3) {
+		this.path3 = path3;
+	}
+
+	public String getPath4() {
+		return path4;
+	}
+
+	public void setPath4(String path4) {
+		this.path4 = path4;
+	}
+
+	public String getPath5() {
+		return path5;
+	}
+
+	public void setPath5(String path5) {
+		this.path5 = path5;
+	}
 
 
 }

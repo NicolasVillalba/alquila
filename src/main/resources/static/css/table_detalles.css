@@ -1,0 +1,378 @@
+@import ('https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:400i|Lato');
+
+table {
+    border-collapse: collapse;
+    border-style: hidden;
+    width:85%;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+align-self: center;
+  border-radius: 5px;
+}
+
+
+
+
+.column100.column1 {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 0.8vw;
+    font-weight: 700;
+}
+
+
+.row100 td {
+    padding-top: 8px;
+    padding-bottom: 8px;
+
+}
+
+tbody {
+  border-radius: 5px;
+}
+
+#row1 {
+  border-top-left-radius: 5px;
+}
+
+#row2 {
+  border-top-right-radius: 5px;
+}
+
+
+/*==================================================================
+
+[ Ver2 ]*/
+
+.table100.ver2 td {
+    font-family: 'Lato', sans-serif;
+    color: #808080;
+    line-height: 1.4;
+}
+
+
+.column100.column2 {
+    color: black;
+    padding: 10px;
+    width: 30%;
+}
+
+
+td.column100.column1 {
+    text-align: center;
+    width: 10%;
+}
+
+th.column100.column1 {
+    border-top-left-radius: 10px;
+}
+
+
+
+/*==================================================================
+[ Ver2 ]*/
+.table100.ver2 {
+  height: 95%;
+}
+
+.table100.ver2 td {
+    color: black;
+    line-height: 1.4;
+  padding: 3%;
+  
+}
+
+
+
+/*==================================================================*/
+
+.icon {
+    height: 20px;
+    width: 20px;
+    margin-right: 5px;
+    margin-bottom: -5px;
+    background-image: url(img/check.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+  
+}
+
+.text_detalles {
+    font-family: 'Lato', sans-serif;
+    font-weight:600;  
+    font-size: 1vw;
+  margin-right: 5px;
+  
+}
+
+.text {
+    font-family: 'Lato', sans-serif;
+    font-weight:600;  
+    font-size: 1vw;
+  
+}
+
+.text2 {
+    font-family: 'Lato', sans-serif;
+    font-weight:400;  
+    font-size: 1vw; 
+    margin-right: 1px;
+    margin-left: 5px;
+}
+
+#direccion {
+    border-top: 1px solid #d9654f;
+}
+
+#direccion2 {
+     border-top: 1px solid #d9654f;
+  background-color: #f2f2f2;
+}
+
+
+#detalle_txt {
+  margin-left: 5px;
+}
+
+#direccion_txt {
+  margin-left: 2px;
+}
+
+
+#col1_row1 {
+  background-color: #f2f2f2;
+  padding-top: 0;
+  border-radius: 5px;
+}
+
+#col1_row2 {
+  background-color: #f2f2f2;
+}
+
+
+.false {
+  position: relative;
+  height: 1vw;
+  width: 1vw;
+  background-color:dimgray;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1px solid transparent;
+  right: -2px;
+  top: -1px;
+  
+}
+
+.true {
+  display:inline-block;
+  position:absolute;
+  height: 1.5vw;
+  width: 1.5vw;
+  background-image: url(img/check.png);
+  background-color: white;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border:1px solid white;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/*-------------------Tabla info legal----------------------*/
+
+
+.column102 {
+  width: 130px;
+  border: 1px solid white;
+}
+
+.column102.column1 {
+  max-width: 265px;
+  padding-left: 15px;
+}
+
+.row100.head th {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 1vw;
+  font-weight: 700;
+}
+
+
+
+/*==================================================================
+
+[ Ver2 ]*/
+.table102.ver3 td {
+  color: #808080;
+  align-self: center;
+  padding: 15px;
+}
+
+
+
+.table102.ver3 th {
+  color: #fff;
+  line-height: 1.4;
+  text-transform: uppercase;
+  pointer-events:none;
+  background-color: #d9654f;
+}
+
+
+.column102.column2{
+  text-align: center;
+  vertical-align: middle;
+  color: black;
+  max-width: 10%;
+  min-width: 10%;
+}
+
+.column102.column3{
+  text-align: center;
+  vertical-align: middle;
+  color: black;
+  max-width: 10%;
+  min-width: 10%;
+}
+
+.column102.column4{
+  text-align: center;
+  vertical-align: middle;
+  color: black;
+  min-width: 30%;
+  font-family: 'Lato', sans-serif;
+  font-size: 1vw;
+  font-weight: 700;
+}
+
+
+td.column102.column1{
+  border-collapse: collapse;
+  max-width: 50%;
+
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 0.9vw;
+  font-weight: 700;
+}
+
+
+
+/*==================================================================
+[ Ver2 ]*/
+.table102.ver3 tbody tr:nth-child(even) {
+  background-color: rgba(233, 200, 147, 0.2);
+}
+
+.table102.ver3 td {
+  color: black;
+  line-height: 1.4;
+}
+
+.table102.ver3 th {
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 1vw;
+  font-weight: 700;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+
+/*==================================================================*/
+#servicios {
+  width: 70%;
+  border-collapse: collapse;
+  border-style: hidden; 
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  margin-top: -70px;
+}
+
+#otros {
+  padding-left: 15px;
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+.text_otros {
+  margin-left: 5px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+}
+
+/*-----------------------------------------------------------*/
+
+/* Clase que desactiva las opciones de información legal, las esconde
+
+
+#grsi1 {
+  display:none;
+}
+
+#grsi2 {
+  display: none;
+}
+
+#esi1 {
+  display: none;
+}
+
+#esi2 {
+  display: none;
+}
+
+#csi1 {
+  display: none;
+}
+
+#csi2 {
+  display: none;
+}
+
+#gcsi1 {
+  display:none;
+}
+
+#gcsi2 {
+  display:none;
+}
+
+#dsi1{
+  display: none;
+}
+
+#dsi2{
+  display: none;
+}
+
+*/
+
+
+
+
+/* Clase que desactiva las opciones de detalles del inmueble, las esconde
+
+#banoad {
+display: none
+}
+
+#garage {
+display: none
+}
+
+#balcon {
+display: none
+}
+
+#patio {
+display: none
+}
+
+
+*/

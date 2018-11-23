@@ -304,7 +304,7 @@
 
 					<div class="mensaje">
 						<span class="imgtips"></span>
-						<div class="mensaje container">
+						<div class="mensaje_container">
 							<h2>¡PORQUE LA PRIMERA IMPRESIÓN IMPORTA!</h2>
 							<p>En esta primer imagen subí tu mejor foto, es lo primero
 								que verá tu proximo inquilino.</p>
@@ -317,7 +317,7 @@
 					<div class="imageUpload2">
 						<img class="image" id="div2" src="#" alt="" style="display: none" />
 						<input type='file' onchange="readURL2(this);" id="imageUpload2"
-							accept=".png, .jpg, .jpeg" set-to="div2" style="display: none;" />
+							accept=".png, .jpg, .jpeg" set-to="div2" style="display: none;" th:field="*{image2}" />
 						<label for="imageUpload2"></label> <label
 							for="imageUploadpreview2"></label>
 						<div id="thumb2"></div>
@@ -326,7 +326,7 @@
 					<div class="imageUpload3">
 						<img class="image" id="div3" src="#" alt="" style="display: none" />
 						<input type='file' onchange="readURL3(this);" id="imageUpload3"
-							accept=".png, .jpg, .jpeg" set-to="div3" style="display: none;" />
+							accept=".png, .jpg, .jpeg" set-to="div3" style="display: none;" th:field="*{image3}" />
 						<label for="imageUpload3"></label> <label
 							for="imageUploadpreview3"></label>
 						<div id="thumb3"></div>
@@ -336,7 +336,7 @@
 					<div class="imageUpload4">
 						<img class="image" id="div4" src="#" alt="" style="display: none" />
 						<input type='file' onchange="readURL4(this);" id="imageUpload4"
-							accept=".png, .jpg, .jpeg" set-to="div4" style="display: none;" />
+							accept=".png, .jpg, .jpeg" set-to="div4" style="display: none;" th:field="*{image4}" />
 						<label for="imageUpload4"></label> <label
 							for="imageUploadpreview4"></label>
 						<div id="thumb4"></div>
@@ -346,7 +346,7 @@
 					<div class="imageUpload5">
 						<img class="image" id="div5" src="#" alt="" style="display: none" />
 						<input type='file' onchange="readURL5(this);" id="imageUpload5"
-							accept=".png, .jpg, .jpeg" set-to="div5" style="display: none;" />
+							accept=".png, .jpg, .jpeg" set-to="div5" style="display: none;" th:field="*{image5}"/>
 						<label for="imageUpload5"></label> <label
 							for="imageUploadpreview5"></label>
 						<div id="thumb5"></div>

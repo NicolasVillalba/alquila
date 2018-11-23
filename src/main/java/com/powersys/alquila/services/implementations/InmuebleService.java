@@ -42,6 +42,7 @@ public class InmuebleService implements InmuebleServiceInterface{
 		PropertyDetail pd = new PropertyDetail();
 		LegalDetail pl = new LegalDetail();
 		
+		
 		a.setStreet(inmueble.getaStreet());
 		a.setNumber(inmueble.getaNumber());
 		a.setFloor(inmueble.getaFloor());
@@ -51,6 +52,11 @@ public class InmuebleService implements InmuebleServiceInterface{
 		p.setExpensesValue(inmueble.getContractExpensesValue());
 		p.setPrice(inmueble.getPrice());
 		p.setImage(inmueble.getPath());
+		p.setImage2(inmueble.getPath2());
+		p.setImage3(inmueble.getPath3());
+		p.setImage4(inmueble.getPath4());
+		p.setImage5(inmueble.getPath5());
+		pd.setRooms(inmueble.getRooms());
 		pd.setAditionalBathroom(inmueble.getAditionalBathroom());
 		pd.setGarage(inmueble.getGarage());
 		pd.setYard(inmueble.getYard());

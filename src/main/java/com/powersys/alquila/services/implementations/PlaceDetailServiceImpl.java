@@ -25,16 +25,17 @@ public class PlaceDetailServiceImpl implements PlaceDetailService {
 	public PropertyDTO get(Long id) {
 		
 		Property p = getOne(id);
-		
-		String pt = (p.getType().equals(PlaceType.DEPARMENT))?"Departamento":"Casa";
-		
-		String[] photos = {
-				"https://via.placeholder.com/256",
-				"https://via.placeholder.com/256", 
-				"https://via.placeholder.com/256"};
+				
 		PropertyDTO pd = new PropertyDTO();
 				 pd.setaStreet(p.getAdress().getStreet());
 				 pd.setaNumber(p.getAdress().getNumber());
+				 
+				 pd.setPlaceType(p.getType());
+				 pd.setExpenses(p.getExpenses());
+				 pd.setContractExpensesValue(p.getExpensesValue());
+				 pd.setRooms(p.getPropertyDetail().getRooms());
+				 pd.setPrice(p.getPrice());
+				 
 				 
 //				 pd.setPhotos(Arrays.asList(photos));
 //				 pd.setPlaceType(pt);

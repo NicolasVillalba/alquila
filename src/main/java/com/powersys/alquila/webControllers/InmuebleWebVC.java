@@ -34,6 +34,10 @@ public class InmuebleWebVC {
 	@PostMapping("/cargarInmueble")
 	public String altaInmueble(@ModelAttribute PropertyDTO inmuebleDTO, Model model) {
 		inmuebleDTO.setPath(this.image.store(inmuebleDTO.getImage()));
+		inmuebleDTO.setPath2(this.image.store(inmuebleDTO.getImage2()));
+		inmuebleDTO.setPath3(this.image.store(inmuebleDTO.getImage3()));
+		inmuebleDTO.setPath4(this.image.store(inmuebleDTO.getImage4()));
+		inmuebleDTO.setPath5(this.image.store(inmuebleDTO.getImage5()));
 		this.inmuebleService.insertInmueble(inmuebleDTO);
 		return "redirect:/";
 	}

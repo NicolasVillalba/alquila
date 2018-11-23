@@ -13,6 +13,7 @@ public class PropertyDetail {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	private String rooms;
 	private String aditionalBathroom;
 	private String yard;
 	private String balcony;
@@ -59,6 +60,14 @@ public class PropertyDetail {
 
 	public void setAditionalInfo(String aditionalInfo) {
 		this.aditionalInfo = aditionalInfo;
+	}
+
+	public String getRooms() {
+		return rooms;
+	}
+
+	public void setRooms(String rooms) {
+		this.rooms = rooms;
 	}
 
 }

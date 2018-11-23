@@ -90,7 +90,7 @@ main {
     grid-column-start: 2;
     grid-column-end: 6;
 }
-.tab1 {
+.tab3 {
     
     margin-top: 25px;
     grid-row-start: 2;
@@ -561,7 +561,6 @@ label[for="sinexp"] {
     display: inline-block;
     z-index: 1;
     margin-bottom: 0;
-    background: #FFFFFF;
     border: 1px solid transparent;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
     transition: all .2s ease-in-out;
@@ -578,11 +577,14 @@ label[for="imageUpload1"] {
     top: 0px;
     z-index: 4;
     cursor: pointer;
+      background-image: url(../img/mas_detalles.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 label[for="imageUpload1"]:hover {
-    background: #f1f1f1;
-    border-color: #d6d6d6;
+    border-color: #d9654f;
 }
 
 label[for="imageUploadpreview1"] {
@@ -628,7 +630,6 @@ label[for="imageUploadpreview1"] {
 .imageUpload2 label {
     display: inline-block;
     margin-bottom: 0;
-    background: #FFFFFF;
     border: 1px solid transparent;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
     transition: all .2s ease-in-out;
@@ -644,11 +645,14 @@ label[for="imageUpload2"] {
     top: 0px;
     z-index: 4;
     cursor: pointer;
+    background-image: url(../img/mas_detalles.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 label[for="imageUpload2"]:hover {
-    background: #f1f1f1;
-    border-color: #d6d6d6;
+    border-color: #d9654f;
 }
 
 
@@ -698,7 +702,6 @@ label[for="imageUploadpreview2"] {
 .imageUpload3 label {
     display: inline-block;
     margin-bottom: 0;
-    background: #FFFFFF;
     border: 1px solid transparent;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
     font-weight: normal;
@@ -715,11 +718,14 @@ label[for="imageUpload3"] {
     top: 0px;
     cursor: pointer;
     z-index: 4;
+      background-image: url(../img/mas_detalles.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 label[for="imageUpload3"]:hover {
-    background: #f1f1f1;
-    border-color: #d6d6d6;
+  border-color: #d9654f;
 }
 
 
@@ -779,11 +785,15 @@ label[for="imageUpload4"] {
     top: 0px;
     cursor: pointer;
     z-index: 4;
+    background-image: url(../img/mas_detalles.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 }
 
 label[for="imageUpload4"]:hover {
-    background: #f1f1f1;
-    border-color: #d6d6d6;
+    border-color: #d9654f;
 }
 
 label[for="imageUploadpreview4"] {
@@ -841,7 +851,12 @@ label[for="imageUpload5"] {
     top: 0px;
     cursor: pointer;
     z-index: 4;
+    background-image: url(../img/mas_detalles.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+
 
 
 label[for="imageUploadpreview5"] {
@@ -861,8 +876,7 @@ label[for="imageUploadpreview5"] {
 }
 
 label[for="imageUpload5"]:hover {
-    background: #f1f1f1;
-    border-color: #d6d6d6;
+   border-color: #d9654f;
 }
 
 #thumb5 {
@@ -1298,10 +1312,12 @@ form {
 
 
 .mensaje > span {
-    height: 65px;
-    width: 65px;
-    border: 2px solid #D9654F;
-    background-color:antiquewhite;
+    height: 70px;
+    width: 70px;
+    background-image:url(../img/alquilatips.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:contain;
     border-radius: 50%;
     position: absolute;
     z-index: 1;
@@ -1321,7 +1337,7 @@ form {
 .mensaje_container {
     background-color:rgb( 217, 101, 79, 0.8 );
     height: 97%;
-    width: 100%;
+    width: 90%;
     display: flex;
     flex-direction: column;
     border-bottom-left-radius: 70px;
@@ -1332,12 +1348,12 @@ form {
         
 }
 
-.mensaje > h2 {
+.mensaje_container > h2 {
     font-family: 'Lato', sans-serif;
     margin: 0;
     text-align:left;
-    margin-left: 70px;
-    font-size:0.8vw;
+    margin-left: 80px;
+    font-size:0.7vw;
     color:white;
     margin-bottom: 5px;
     margin-top: 10px;
@@ -1345,14 +1361,13 @@ form {
 }
 
 
-.mensaje > p {
+.mensaje_container > p {
     padding-right: 2%;
     margin: 0;
     text-align: left;
-    margin-left: 70px;
+    margin-left: 80px;
     font-size:0.7vw;
     color:white;
     width: 63%;
-
 }
 
