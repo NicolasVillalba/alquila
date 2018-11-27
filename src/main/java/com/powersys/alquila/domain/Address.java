@@ -27,9 +27,8 @@ public class Address {
 	
 	private String aditionalInfo;
 	
-	@OneToMany
-	private List<Detail> details;
-
+	
+	
 	public Long getId() {
 		return id;
 	}
@@ -54,13 +53,7 @@ public class Address {
 		this.number = number;
 	}
 
-	public List<Detail> getDetails() {
-		return details;
-	}
-
-	public void setDetails(List<Detail> details) {
-		this.details = details;
-	}
+	
 
 	public String getFloor() {
 		return floor;

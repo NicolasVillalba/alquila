@@ -18,6 +18,7 @@ public class PropertyDetail {
 	private String yard;
 	private String balcony;
 	private String garage;
+	private String garage2;
 	private String aditionalInfo;
 	
 	
@@ -68,6 +69,14 @@ public class PropertyDetail {
 
 	public void setRooms(String rooms) {
 		this.rooms = rooms;
+	}
+
+	public String getGarage2() {
+		return garage2;
+	}
+
+	public void setGarage2(String garage2) {
+		this.garage2 = garage2;
 	}
 
 }

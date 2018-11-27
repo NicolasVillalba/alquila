@@ -50,7 +50,7 @@ public class Property {
 	
 	private String expenses;
 	
-	private Integer expensesValue;
+	private String expensesValue;
 	
 	private String image;
 	private String image2;
@@ -154,11 +154,11 @@ public class Property {
 		this.expenses = expenses;
 	}
 
-	public Integer getExpensesValue() {
+	public String getExpensesValue() {
 		return expensesValue;
 	}
 
-	public void setExpensesValue(Integer expensesValue) {
+	public void setExpensesValue(String expensesValue) {
 		this.expensesValue = expensesValue;
 	}
 

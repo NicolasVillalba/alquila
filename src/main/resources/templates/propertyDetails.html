@@ -4,6 +4,7 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans|Lato" rel="stylesheet"/>
+    <link rel="icon" href="/img/alquilatips.png"/>
     <link rel="stylesheet" th:href="@{/css/style.css}"/>
     <link rel="stylesheet" th:href="@{/css/table_detalles.css}"/>
     <script th:src="@{/js/jquery-3.3.1.min.js}"></script>
@@ -33,11 +34,11 @@
       </div>
 
       <div class="search">
-        <div class="image1"></div>
-        <div class="image2"></div>
-        <div class="image3"></div>
-        <div class="image4"></div>
-        <div class="image5"></div>
+        <div class="image1" th:style="'background-image:url(' + @{/image/} + ${id} +');'"></div>
+        <div class="image2" th:style="'background-image:url(' + @{/image2/} + ${id} +');'"></div>
+        <div class="image3" th:style="'background-image:url(' + @{/image3/} + ${id} +');'"></div>
+        <div class="image4" th:style="'background-image:url(' + @{/image4/} + ${id} +');'"></div>
+        <div class="image5" th:style="'background-image:url(' + @{/image5/} + ${id} +');'"></div>
       </div>
     
       <div class="top" id="back">
@@ -138,8 +139,8 @@
             <div class="rent">
               <span class="tags" id="dpto" th:text="*{placeType}"></span>
               <span class="tags2">ALQUILER</span><span class="text_rent" th:text="*{price}"></span>
-              <span class="tags2">EXPENSAS</span><span class="text_rent">$6000</span>
-              <span class="tags2">AMBIENTES</span><span class="text_rent"></span>
+              <span class="tags2">EXPENSAS</span><span class="text_rent" th:text="*{expensesValue}"></span>
+              <span class="tags2">AMBIENTES</span><span class="text_rent" th:text="*{rooms}"></span>
             </div>
           
                   <div class="table100 ver2">
@@ -151,16 +152,16 @@
                         <tr class="row100" id="col1_row1">
                           <td class="column100 column1" data-column="column1" id="row1"><span class="icons2" id="detalles"></span><span id="detalle_txt">DETALLES</span></td>
                           <td class="column100 column2" data-column="column2" id="row2">
-                            <span id="banoad"><span class="check"></span><span class="text_detalles">Baño adicional</span></span>
-                            <span id="garage"><span class="check"></span><span class="text_detalles">Garage</span></span>
-                            <span id="balcon"><span class="check"></span><span class="text_detalles">Balcón</span></span>
-                            <span id="patio"><span class="check"></span><span class="text_detalles">Patio</span></span>
+                            <span id="banoad" th:value="*{aditionalBathroom}"><span class="icon" id="spanBanoad"></span><span class="text_detalles" >Baño adicional</span></span>
+                            <span id="garage" th:value="*{garage2}"><span class="icon" id="spanGarage"></span><span class="text_detalles" >Garage</span></span>
+                            <span id="balcon" th:value="*{balcony}"><span class="icon" id="spanBalcon"></span><span class="text_detalles" >Balcon</span></span>
+                            <span id="patio" th:value="*{yard}"><span class="icon" id="spanPatio"></span><span class="text_detalles" >Patio</span></span>
                           </td>
                         </tr>
 
                         <tr class="row100">
                           <td class="column100 column1" data-column="column1" id="row1"></td>
-                          <td class="column100 column2" data-column="column2"><span class="text">Otros:</span><span class="text2">Incluye termotanque y bajomesada</span></td>
+                          <td class="column100 column2" data-column="column2"><span class="text">Otros:</span><span class="text2" th:text="*{aditionalProInfo}"></span></td>
                         </tr>
 
                         <tr class="row100" id="col1_row2">
@@ -169,17 +170,17 @@
                             
                          </td>
                           <td class="column100 column2" data-column="column2" id="direccion2" >
-                            <span class="text">Calle:</span><span class="text2">Av. Libertad</span> 
-                            <span class="text">Altura:</span><span class="text2">5215</span>
-                            <span class="text">Departamento:</span><span class="text2">A</span>
-                            <span class="text">Piso:</span><span class="text2">2</span>
+                            <span class="text">Calle:</span><span class="text2" th:text="*{aStreet}"></span> 
+                            <span class="text">Altura:</span><span class="text2" th:text="*{aNumber}"></span>
+                            <span class="text">Departamento:</span><span class="text2" th:text="*{aApartment}"></span>
+                            <span class="text">Piso:</span><span class="text2" th:text="*{aFloor}"></span>
                           </td>
                         </tr>
 
                         <tr class="row100">
                           <td class="column100 column1" data-column="column1" id="row2"></td>
                           <td class="column100 column2" data-column="column2" >
-                            <span class="text">Otros:</span><span class="text2"> A 200  mts de la UNNE, frente a la facultad de ingeniería.</span>
+                            <span class="text">Otros:</span><span class="text2" th:text="*{aAditionalInfo}"></span>
                           </td>
                         </tr>
                       </tbody>
@@ -221,38 +222,38 @@
               <tbody>
 
                 <tr class="row100">
-                  <td class="column102 column1" data-column="column1">Garante</td>
-                  <td class="column102 column2" data-column="column2"><span id="grsi1"><span class="true"></span></span><span class="false"></span></td>
+                  <td class="column102 column1" data-column="column1" th:value="*{guarantor}" id="gr">Garante</td>
+                  <td class="column102 column2" data-column="column2"><span id="grsi1"><span class="true" ></span></span><span class="false"></span></td>
                   <td class="column102 column3" data-column="column3"><span id="grsi2"><span class="true"></span></span><span class="false"></span></td>
                   <td class="column102 column4" data-column="column4"></td>
                 </tr>
 
                 <tr class="row100">
-                  <td class="column102 column1" data-column="column1">Escribanía</td>
+                  <td class="column102 column1" data-column="column1" th:value="*{notary}" id="esi">Escribanía</td>
                   <td class="column102 column2" data-column="column2"><span id="esi1"><span class="true"></span></span><span class="false"></span></td>
                   <td class="column102 column3" data-column="column3"><span id="esi2"><span class="true"></span></span><span class="false"></span></td>
                   <td class="column102 column4" data-column="column4"></td>
                 </tr>
 
                 <tr class="row100">
-                  <td class="column102 column1" data-column="column1">Contrato</td>
+                  <td class="column102 column1" data-column="column1" th:value="*{contract}" id="csi">Contrato</td>
                   <td class="column102 column2" data-column="column2"><span id="csi1"><span class="true"></span></span><span class="false"></span></td>
                   <td class="column102 column3" data-column="column3"><span id="csi2"><span class="true"></span></span><span class="false"></span></td>
                   <td class="column102 column4" data-column="column4"></td>
                 </tr>
 
                 <tr class="row100">
-                  <td class="column102 column1" data-column="column1">Gastos de contrato</td>
+                  <td class="column102 column1" data-column="column1" th:value="*{contractExpenses}" id="gcsi">Gastos de contrato</td>
                   <td class="column102 column2" data-column="column2"><span id="gcsi1"><span class="true"></span></span><span class="false"></span></td>
                   <td class="column102 column3" data-column="column3"><span id="gcsi2"><span class="true"></span></span><span class="false"></span></td>
-                  <td class="column102 column4" data-column="column4"><span>$</span><span>12345</span></td>
+                  <td class="column102 column4" data-column="column4"><span id="spanGC">$</span><span th:text="*{contractExpensesValue}"></span></td>
                 </tr>
 
                 <tr class="row100">
-                  <td class="column102 column1" data-column="column1">Depósito inicial</td>
+                  <td class="column102 column1" data-column="column1" th:value="*{initialDeposit}" id="dsi">Depósito inicial</td>
                   <td class="column102 column2" data-column="column2"><span id="dsi1"><span class="true"></span></span><span class="false"></span></td>
                   <td class="column102 column3" data-column="column3"><span id="dsi2"><span class="true"></span></span><span class="false"></span></td>
-                  <td class="column102 column4" data-column="column4"><span>$</span><span>12345</span></td>
+                  <td class="column102 column4" data-column="column4"><span id="spanD">$</span><span th:text="*{initialDepositValue}"></span></td>
                 </tr>
 
                 <tr class="row100">

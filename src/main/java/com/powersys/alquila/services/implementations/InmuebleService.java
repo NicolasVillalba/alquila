@@ -32,12 +32,8 @@ public class InmuebleService implements InmuebleServiceInterface{
 
 	@Override
 	public boolean insertInmueble(PropertyDTO inmueble) {
-		Property p = new Property();
+		Property p = new Property();		
 		
-		//List<Detail> details = new ArrayList<>();
-		//List<Detail> legals = new ArrayList<Detail>();
-		//p.setDetails(details);
-		//p.setLegals(legals);
 		Address a = new Address();
 		PropertyDetail pd = new PropertyDetail();
 		LegalDetail pl = new LegalDetail();
@@ -47,9 +43,10 @@ public class InmuebleService implements InmuebleServiceInterface{
 		a.setNumber(inmueble.getaNumber());
 		a.setFloor(inmueble.getaFloor());
 		a.setApartment(inmueble.getaApartment());
-		a.setAditionalInfo(inmueble.getAditionalBathroom());
+		a.setAditionalInfo(inmueble.getaAditionalInfo());
+		
 		p.setExpenses(inmueble.getExpenses());
-		p.setExpensesValue(inmueble.getContractExpensesValue());
+		p.setExpensesValue(inmueble.getExpensesValue());
 		p.setPrice(inmueble.getPrice());
 		p.setImage(inmueble.getPath());
 		p.setImage2(inmueble.getPath2());
@@ -58,7 +55,7 @@ public class InmuebleService implements InmuebleServiceInterface{
 		p.setImage5(inmueble.getPath5());
 		pd.setRooms(inmueble.getRooms());
 		pd.setAditionalBathroom(inmueble.getAditionalBathroom());
-		pd.setGarage(inmueble.getGarage());
+		pd.setGarage2(inmueble.getGarage2());
 		pd.setYard(inmueble.getYard());
 		pd.setBalcony(inmueble.getBalcony());
 		pd.setAditionalInfo(inmueble.getAditionalProInfo());
@@ -70,10 +67,7 @@ public class InmuebleService implements InmuebleServiceInterface{
 		pl.setInitialDeposit(inmueble.getInitialDeposit());
 		pl.setInitialDepositValue(inmueble.getInitialDepositValue());
 		pl.setAditionalInfo(inmueble.getAditionalLegInfo());
-		//Detail d = new Detail();
-		//p.getDetails().add(d);
-		//Detail d2 = new Detail();
-		//p.getDetails().add(d2);
+		
 		p.setAdress(a);
 		p.setPropertyDetail(pd);
 		p.setLegalDetail(pl);

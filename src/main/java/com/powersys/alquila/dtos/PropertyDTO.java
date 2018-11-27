@@ -1,38 +1,36 @@
 package com.powersys.alquila.dtos;
 
-import com.powersys.alquila.dtos.DetailDTO;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.web.multipart.MultipartFile;
-import org.thymeleaf.dom.Text;
 
 public class PropertyDTO {
 
 	private String placeType;
 	private String expenses;
-	private Integer expensesValue;
+	private String expensesValue;
 	private String rooms;
 	private Integer price;
+	
 	private String aStreet;
 	private String aNumber;
 	private String aFloor;
 	private String aApartment;
 	private String aAditionalInfo;
+	
 	private String aditionalBathroom;
 	private String yard;
-	private String garage;
+	private String garage2;
 	private String balcony;
 	private String aditionalProInfo;
+	
 	private String guarantor;
 	private String notary;
 	private String contract;
 	private String contractExpenses;
-	private Integer contractExpensesValue;
+	private String contractExpensesValue;
 	private String initialDeposit;
-	private Integer initialDepositValue;	
+	private String initialDepositValue;	
 	private String aditionalLegInfo;
+	
 	private MultipartFile image;
 	private MultipartFile image2;
 	private MultipartFile image3;
@@ -49,14 +47,10 @@ public class PropertyDTO {
 	
 	// private List<DetailDTO> aDetails = new ArrayList<>();
 	// private List<DetailDTO> pDetails = new ArrayList<>();
-	private List<String> photos;
 	
-	private List<DetailDTO> legals = new ArrayList<>();
 	
 
-	public void addDetail(String name, String value) {
-		this.legals.add(new DetailDTO(name, value));
-	}
+	
 
 	public String getPlaceType() {
 		return placeType;
@@ -97,21 +91,6 @@ public class PropertyDTO {
 	public void setaNumber(String aNumber) {
 		this.aNumber = aNumber;
 	}
-
-	public List<String> getPhotos() {
-		return photos;
-	}
-
-	public void setPhotos(List<String> photos) {
-		this.photos = photos;
-	}
-
-	
-
-	public List<DetailDTO> getLegals() {
-		return legals;
-	}
-
 	
 		
 
@@ -165,13 +144,13 @@ public class PropertyDTO {
 		this.aditionalBathroom = aditionalBathroom;
 	}
 
-	public String getGarage() {
-		return garage;
-	}
+//	public String getGarage() {
+//		return garage;
+//	}
 
-	public void setGarage(String garage) {
-		this.garage = garage;
-	}
+//	public void setGarage(String garage) {
+//		this.garage = garage;
+//	}
 
 	public String getBalcony() {
 		return balcony;
@@ -187,16 +166,7 @@ public class PropertyDTO {
 
 	public void setYard(String yard) {
 		this.yard = yard;
-	}
-
-	public String getAditionalPropertyInfo() {
-		return "";
-	}
-
-	public void setAditionalPropertyInfo(String value) {
-		DetailDTO d = new DetailDTO("Informacion adicional de la propiedad", value);
-		this.getLegals().add(d);
-	}
+	}	
 
 	public String getAditionalProInfo() {
 		return aditionalProInfo;
@@ -206,19 +176,19 @@ public class PropertyDTO {
 		this.aditionalProInfo = aditionalProInfo;
 	}
 
-	public Integer getContractExpensesValue() {
+	public String getContractExpensesValue() {
 		return contractExpensesValue;
 	}
 
-	public void setContractExpensesValue(Integer contractExpensesValue) {
+	public void setContractExpensesValue(String contractExpensesValue) {
 		this.contractExpensesValue = contractExpensesValue;
 	}
 
-	public Integer getInitialDepositValue() {
+	public String getInitialDepositValue() {
 		return initialDepositValue;
 	}
 
-	public void setInitialDepositValue(Integer initialDepositValue) {
+	public void setInitialDepositValue(String initialDepositValue) {
 		this.initialDepositValue = initialDepositValue;
 	}
 
@@ -228,11 +198,7 @@ public class PropertyDTO {
 
 	public void setAditionalLegInfo(String aditionalLegInfo) {
 		this.aditionalLegInfo = aditionalLegInfo;
-	}
-
-	public void setLegals(List<DetailDTO> legals) {
-		this.legals = legals;
-	}
+	}	
 
 	public String getaFloor() {
 		return aFloor;
@@ -258,11 +224,11 @@ public class PropertyDTO {
 		this.expenses = expenses;
 	}
 
-	public Integer getExpensesValue() {
+	public String getExpensesValue() {
 		return expensesValue;
 	}
 
-	public void setExpensesValue(Integer expensesValue) {
+	public void setExpensesValue(String expensesValue) {
 		this.expensesValue = expensesValue;
 	}
 
@@ -288,7 +254,7 @@ public class PropertyDTO {
 
 	public void setImage(MultipartFile image) {
 		this.image = image;
-}
+	}
 
 	public MultipartFile getImage2() {
 		return image2;
@@ -352,6 +318,14 @@ public class PropertyDTO {
 
 	public void setPath5(String path5) {
 		this.path5 = path5;
+	}
+
+	public String getGarage2() {
+		return garage2;
+	}
+
+	public void setGarage2(String garage2) {
+		this.garage2 = garage2;
 	}
 
 

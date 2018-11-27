@@ -7,6 +7,7 @@
 <link rel="stylesheet" type="text/css" th:href="@{/css/form3.css}"/>
 <link href="https://fonts.googleapis.com/css?family=Fira+Sans|Lato"
 	rel="stylesheet" />
+<link rel="icon" href="/img/alquilatips.png"/>
 <link rel="stylesheet" type="text/css" th:href="@{/css/table4.css}"/>
 
 <script	th:src="@{/js/jquery-3.3.1.min.js}"></script>
@@ -32,9 +33,9 @@
 				<div id="alquilercontainer" class="alquiler">
 					<h5>ALQUILER</h5>
 					<div class="sub alquiler_container">
-						<label for="monto" id="alquilermonto">Monto*</label> <span
-							id="spanmonto">$<input type="number" step="any" id="monto"
-						    th:field="*{price}"/></span>
+						<label for="monto" id="alquilermonto" >Monto*</label> <span
+							id="spanmonto">$<input type="number" step="any" id="monto" th:field="*{price}"/></span>
+						   
 
 						<div class="expensasbuttons">
 							<input type="radio" class="monto" name="monto" id="sinexp"
@@ -45,8 +46,9 @@
 						</div>
 						<div class="expensasmonto">
 							<label for="expensas">$<input type="number" id="expensas"
-								name="expensas" style="width: 80%" oninput="this.className = ''" /></label>
+								name="expensas" style="width: 80%" oninput="this.className = ''" /></label>								
 						</div>
+						<input type="hidden"  id="inputExpensas" th:field="*{expensesValue}"/>
 					</div>
 				</div>
 				<div id="direcontainer" class="direccion">
@@ -70,14 +72,14 @@
 					<div class="inputcontainer">
 						<div class="Custominp2">
 							<label for="inp2" class="inp2"> <input type="text"
-								id="departamento" placeholder="&nbsp;"/> <span class="label">Departamento</span>
+								id="departamento" placeholder="&nbsp;" th:field="*{aApartment}"/> <span class="label">Departamento</span>
 								<span class="border"></span>
 							</label>
 						</div>
 
 						<div class="Custominp2">
 							<label for="inp2" class="inp2"> <input type="text"
-								id="piso" placeholder="&nbsp;"/> <span class="label">Piso</span>
+								id="piso" placeholder="&nbsp;" th:field="*{aFloor}"/> <span class="label">Piso</span>
 								<span class="border"></span>
 							</label>
 						</div>
@@ -89,7 +91,7 @@
 						<label for="otros" id="otroslabel">Otros</label>
 						<textarea id="diretext" name="otros"
 							placeholder="Más información para encontrar el inmueble..."
-							style="width: 100%"></textarea>
+							style="width: 100%" th:field="*{aAditionalInfo}"></textarea>
 					</div>
 				</div>
 			</div>
@@ -251,7 +253,7 @@
 										<td class="column100 column3" data-column="column3"><input
 											class="check" type="radio" id="grno" name="garage"
 											value="false" checked="checked"/><label for="grno"></label></td>
-										<input type="hidden" id="inputGarage" th:field="*{garage}" />
+										<input type="hidden" id="inputGarage" th:field="*{garage2}" />
 									</tr>
 
 									<tr class="row100">

@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.powersys.alquila.domain.Property;
+
 import java.io.*;
 import java.util.UUID;
 

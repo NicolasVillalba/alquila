@@ -1,15 +1,10 @@
 package com.powersys.alquila.services.implementations;
 
-import java.util.Arrays;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
-import com.powersys.alquila.domain.Detail;
-import com.powersys.alquila.domain.PlaceType;
 import com.powersys.alquila.domain.Property;
-import com.powersys.alquila.dtos.DetailDTO;
 import com.powersys.alquila.dtos.PropertyDTO;
 import com.powersys.alquila.repositories.PlacesRepository;
 import com.powersys.alquila.services.interfaces.PlaceDetailService;
@@ -27,37 +22,40 @@ public class PlaceDetailServiceImpl implements PlaceDetailService {
 		Property p = getOne(id);
 				
 		PropertyDTO pd = new PropertyDTO();
-				 pd.setaStreet(p.getAdress().getStreet());
-				 pd.setaNumber(p.getAdress().getNumber());
-				 
+								 
 				 pd.setPlaceType(p.getType());
 				 pd.setExpenses(p.getExpenses());
-				 pd.setContractExpensesValue(p.getExpensesValue());
+				 pd.setExpensesValue(p.getExpensesValue());
 				 pd.setRooms(p.getPropertyDetail().getRooms());
 				 pd.setPrice(p.getPrice());
-				 
-				 
-//				 pd.setPhotos(Arrays.asList(photos));
-//				 pd.setPlaceType(pt);
-//				 pd.setPrice((p.getPrice()));
-//				 pd.setRooms("3");
-//				 pd.getaDetails().add(new DetailDTO("Edificio", "Constelación"));
-//				 pd.getaDetails().add(new DetailDTO("Piso", "6"));
-//				 pd.getaDetails().add(new DetailDTO("Dto", "B"));
-//				 pd.getaDetails().add(new DetailDTO("Otros", "A 200 mts de la xxx, frente a la xxx de xxx."));
-//				 pd.getpDetails().add(new DetailDTO("Baño", "En la suite principal"));
-//				 pd.getpDetails().add(new DetailDTO("Garaje", "Sin techo"));
-//				 pd.getpDetails().add(new DetailDTO("Patio", "Con pileta"));
-//				 pd.getpDetails().add(new DetailDTO("Garage", ""));
-				 
-				for(Detail d : p.getDetails()) {
-						DetailDTO dto = new DetailDTO(d.getName(), d.getValue());
-//						pd.getpDetails().add(dto);
-				}
 				
-				for(Detail d : p.getLegals()) {
-					pd.addDetail(d.getName(), d.getValue());
-				}
+				 pd.setaStreet(p.getAdress().getStreet());
+				 pd.setaNumber(p.getAdress().getNumber());
+				 pd.setaFloor(p.getAdress().getFloor());
+				 pd.setaApartment(p.getAdress().getApartment());
+				 pd.setaAditionalInfo(p.getAdress().getAditionalInfo());
+				 
+				 pd.setAditionalBathroom(p.getPropertyDetail().getAditionalBathroom());
+				 pd.setYard(p.getPropertyDetail().getYard());
+				 pd.setGarage2(p.getPropertyDetail().getGarage2());
+				 pd.setBalcony(p.getPropertyDetail().getBalcony());
+				 pd.setAditionalProInfo(p.getPropertyDetail().getAditionalInfo());
+				 
+				 pd.setGuarantor(p.getLegalDetail().getGuarantor());
+				 pd.setNotary(p.getLegalDetail().getNotary());
+				 pd.setContract(p.getLegalDetail().getContract());
+				 pd.setContractExpenses(p.getLegalDetail().getContractExpenses());
+				 pd.setContractExpensesValue(p.getLegalDetail().getContractExpensesValue());
+				 pd.setInitialDeposit(p.getLegalDetail().getInitialDeposit());
+				 pd.setInitialDepositValue(p.getLegalDetail().getInitialDepositValue());
+				 pd.setAditionalLegInfo(p.getLegalDetail().getAditionalInfo());
+				 
+				 pd.setPath(p.getImage());
+				 pd.setPath2(p.getImage2());
+				 pd.setPath3(p.getImage3());
+				 pd.setPath4(p.getImage4());
+				 pd.setPath5(p.getImage5());				 
+
 				
 				return pd;
 	}

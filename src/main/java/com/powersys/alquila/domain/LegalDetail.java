@@ -17,9 +17,9 @@ public class LegalDetail {
 	private String notary;
 	private String contract;
 	private String contractExpenses;
-	private Integer contractExpensesValue;
+	private String contractExpensesValue;
 	private String initialDeposit;
-	private Integer initialDepositValue;	
+	private String initialDepositValue;	
 	private String aditionalInfo;
 	
 	
@@ -63,11 +63,11 @@ public class LegalDetail {
 		this.contractExpenses = contractExpenses;
 	}
 
-	public Integer getContractExpensesValue() {
+	public String getContractExpensesValue() {
 		return contractExpensesValue;
 	}
 
-	public void setContractExpensesValue(Integer contractExpensesValue) {
+	public void setContractExpensesValue(String contractExpensesValue) {
 		this.contractExpensesValue = contractExpensesValue;
 	}
 
@@ -79,11 +79,11 @@ public class LegalDetail {
 		this.initialDeposit = initialDeposit;
 	}
 
-	public Integer getInitialDepositValue() {
+	public String getInitialDepositValue() {
 		return initialDepositValue;
 	}
 
-	public void setInitialDepositValue(Integer initialDepositValue) {
+	public void setInitialDepositValue(String initialDepositValue) {
 		this.initialDepositValue = initialDepositValue;
 	}
 

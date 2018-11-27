@@ -108,7 +108,7 @@ html,body {
 [for="buscador"] {
   width: 5vh;
   height: 5vh;
-  background-image:url(img/alquilaicons_buscar_2.png);
+  background-image:url(/img/alquilaicons_buscar_2.png);
   background-origin: content-box;
   background-repeat: no-repeat;
   background-size: contain;
@@ -118,7 +118,7 @@ html,body {
 [for="crear_anuncio"] {
   width: 5vh;
   height: 5vh;
-  background-image: url(img/alquilaicons_anuncio_2.png);
+  background-image: url(/img/alquilaicons_anuncio_2.png);
   background-origin:content-box;
   background-repeat: no-repeat;
   background-size:contain;
@@ -126,7 +126,7 @@ html,body {
 }
 
 input:checked + label[for="buscador"] {
-  background-image:url(img/alquilaicons_buscar.png);
+  background-image:url(/img/alquilaicons_buscar.png);
   background-origin: content-box;
   background-repeat: no-repeat;
   background-size: contain;
@@ -134,7 +134,7 @@ input:checked + label[for="buscador"] {
 }
 
 input:checked + label[for="crear_anuncio"] {
-  background-image: url(img/alquilaicons_anuncio.png);
+  background-image: url(/img/alquilaicons_anuncio.png);
   background-origin: content-box;
   background-repeat: no-repeat;
   background-size: contain;
@@ -175,7 +175,7 @@ img {
 .image1{
   width: 20%;
   height: 100%;
-  background-image: url(img/edificio7.jpg);
+  background-image: url(/img/edificio7.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -186,7 +186,7 @@ img {
   padding: 0;
   width: 20%;
   height: 100%;
-  background-image: url(img/edificio8.jpg);
+  background-image: url(/img/edificio8.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -197,7 +197,7 @@ img {
   padding: 0;
   width: 20%;
   height: 100%;
-  background-image: url(img/edificio7.jpg);
+  background-image: url(/img/edificio7.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size:cover;
@@ -208,7 +208,7 @@ img {
   padding: 0;
   width: 20%;
   height: 100%;
-  background-image: url(img/edificio8.jpg);
+  background-image: url(/img/edificio8.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -219,7 +219,7 @@ img {
   padding: 0;
   width: 20%;
   height: 100%;
-  background-image: url(img/edificio7.jpg);
+  background-image: url(/img/edificio7.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -368,7 +368,7 @@ main div {
 .icon-arrow-up {
   width: 15px;
   height: 15px;
-  background-image: url(img/arrow_up.png);
+  background-image: url(/img/arrow_up.png);
   background-position: center;
   background-origin: content-box;
   background-repeat: no-repeat;
@@ -378,7 +378,7 @@ main div {
 .icon-arrow-down {
   width: 15px;
   height: 15px;
-  background-image: url(img/arrow_down.png);
+  background-image: url(/img/arrow_down.png);
   background-position: center;
   background-origin: content-box;
   background-repeat: no-repeat;
@@ -591,14 +591,14 @@ main div {
 }
 
 #direccioni {
-  background-image: url(img/direccion_2.png);
+  background-image: url(/img/direccion_2.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size:cover;
 }
 
 #detalles {
-  background-image: url(img/detalles_2.png);
+  background-image: url(/img/detalles_2.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size:cover;
@@ -634,7 +634,7 @@ main div {
   display: block;
   height: 50px;
   width: 50px;
-  background-image:url(img/descripcion.png);
+  background-image:url(/img/descripcion.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -664,7 +664,7 @@ main div {
   display: block;
   height: 50px;
   width: 50px;
-  background-image:url(img/infolegal.png);
+  background-image:url(/img/infolegal.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -748,7 +748,7 @@ main div {
 }
 
 #inmobiliaria {
-  background-image:url(img/inmobiliaria.jpg);
+  background-image:url(/img/inmobiliaria.jpg);
   background-position:center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -811,7 +811,7 @@ main div {
 }
 
 #propietario {
-  background-image:url(img/propietario.jpg);
+  background-image:url(/img/propietario.jpg);
   background-position:center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -822,7 +822,7 @@ main div {
   height: 3.5vh;
   width: 3.5vh;
   margin: 2px;
-  background-image:url(img/twitter3.png);
+  background-image:url(/img/twitter3.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -834,7 +834,7 @@ main div {
   height: 3.5vh;
   width: 3.5vh;
   margin: 2px;
-  background-image: url(img/face_2.png);
+  background-image: url(/img/face_2.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -846,7 +846,7 @@ main div {
   height: 3.5vh;
   width: 3.5vh;
   margin: 2px;
-  background-image: url(img/web3.png);
+  background-image: url(/img/web3.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -858,7 +858,7 @@ main div {
   height: 3.5vh;
   width: 3.5vh;
   margin: 2px;
-  background-image: url(img/instagram3.png);
+  background-image: url(/img/instagram3.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -870,7 +870,7 @@ main div {
   height: 3.5vh;
   width: 3.5vh;
   margin: 2px;
- background-image: url(img/correo3.png);
+ background-image: url(/img/correo3.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -895,7 +895,7 @@ main div {
   height: 3.5vh;
   width: 3.5vh;
   margin: 2px;
-  background-image:url(img/twitter3.png);
+  background-image:url(/img/twitter3.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -907,7 +907,7 @@ main div {
   height: 3.5vh;
   width: 3.5vh;
   margin: 2px;
-  background-image: url(img/face_2.png);
+  background-image: url(/img/face_2.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -919,7 +919,7 @@ main div {
   height: 3.5vh;
   width: 3.5vh;
   margin: 2px;
-  background-image: url(img/web1.png);
+  background-image: url(/img/web1.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -931,7 +931,7 @@ main div {
   height: 3.5vh;
   width: 3.5vh;
   margin: 2px;
-  background-image: url(img/instagram1.png);
+  background-image: url(/img/instagram1.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -943,7 +943,7 @@ main div {
   height: 3.5vh;
   width: 3.5vh;
   margin: 2px;
-  background-image: url(img/correo1.png);
+  background-image: url(/img/correo1.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -1058,7 +1058,7 @@ a {
   height: 20px;
   width: 20px;
   margin-top: 5px;
-  background-image:url(img/face_2.png);
+  background-image:url(/img/face_2.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -1070,7 +1070,7 @@ a {
   width: 20px;
   margin-left: 5px;
   margin-top: 5px;
-  background-image:url(img/correo1.png);
+  background-image:url(/img/correo1.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -1082,7 +1082,7 @@ a {
   width: 20px;
   margin-left: 5px;
   margin-top: 5px;
-  background-image:url(img/twitter1.png);
+  background-image:url(/img/twitter1.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
