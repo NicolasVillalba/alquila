@@ -9,6 +9,7 @@ public class PropertyDTO {
 	private String expensesValue;
 	private String rooms;
 	private Integer price;
+	private String date;
 	
 	private String aStreet;
 	private String aNumber;
@@ -42,14 +43,6 @@ public class PropertyDTO {
 	private String path4;
 	private String path5;
 	
-	
-	
-	
-	// private List<DetailDTO> aDetails = new ArrayList<>();
-	// private List<DetailDTO> pDetails = new ArrayList<>();
-	
-	
-
 	
 
 	public String getPlaceType() {
@@ -326,6 +319,14 @@ public class PropertyDTO {
 
 	public void setGarage2(String garage2) {
 		this.garage2 = garage2;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
 	}
 
 

@@ -1,22 +1,13 @@
 package com.powersys.alquila.domain;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.CascadeType;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-import org.thymeleaf.dom.Text;
 
 @Entity
 @Table(name = "property")
@@ -38,12 +29,6 @@ public class Property {
 	@OneToOne(cascade = CascadeType.PERSIST)
 	private LegalDetail legalDetail;
 	
-	@OneToMany(cascade = CascadeType.PERSIST)
-	private List<Detail> details;
-
-	@OneToMany(cascade = CascadeType.PERSIST)
-	private List<Detail> legals;
-
 	private Integer price;
 		
 	private String type;
@@ -51,6 +36,7 @@ public class Property {
 	private String expenses;
 	
 	private String expensesValue;
+	private String date;
 	
 	private String image;
 	private String image2;
@@ -58,9 +44,7 @@ public class Property {
 	private String image4;
 	private String image5;
 
-	@ElementCollection
-	private List<String> images = new ArrayList<>();
-
+	
 	public Long getId() {
 		return id;
 	}
@@ -101,21 +85,7 @@ public class Property {
 		this.legalDetail = legalDetail;
 	}
 
-	public List<Detail> getDetails() {
-		return details;
-	}
-
-	public void setDetails(List<Detail> details) {
-		this.details = details;
-	}
-
-	public List<Detail> getLegals() {
-		return legals;
-	}
-
-	public void setLegals(List<Detail> legals) {
-		this.legals = legals;
-	}
+	
 
 	public Integer getPrice() {
 		return price;
@@ -133,14 +103,7 @@ public class Property {
 		this.type = type;
 	}
 
-	public List<String> getImages() {
-		return images;
-	}
-
-	public void addImage(String imageUrl) {
-		this.images.add(imageUrl);
-	}
-
+	
 	public void getDetails(String name, String value) {
 		// TODO Auto-generated method stub
 		
@@ -200,6 +163,14 @@ public class Property {
 
 	public void setImage5(String image5) {
 		this.image5 = image5;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
 	}
 
 	

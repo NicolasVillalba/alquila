@@ -1,15 +1,13 @@
 package com.powersys.alquila.services.implementations;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.powersys.alquila.domain.Address;
-import com.powersys.alquila.domain.Detail;
 import com.powersys.alquila.domain.LegalDetail;
-import com.powersys.alquila.domain.PlaceType;
 import com.powersys.alquila.domain.Property;
 import com.powersys.alquila.domain.PropertyDetail;
 import com.powersys.alquila.dtos.InmuebleDTO;
@@ -48,6 +46,7 @@ public class InmuebleService implements InmuebleServiceInterface{
 		p.setExpenses(inmueble.getExpenses());
 		p.setExpensesValue(inmueble.getExpensesValue());
 		p.setPrice(inmueble.getPrice());
+		p.setDate(inmueble.getDate());
 		p.setImage(inmueble.getPath());
 		p.setImage2(inmueble.getPath2());
 		p.setImage3(inmueble.getPath3());
@@ -78,7 +77,7 @@ public class InmuebleService implements InmuebleServiceInterface{
 
 	@Override
 	public List<Property> findAll() {
-		return (List<Property>) this.propertyRepository.findAll();
+		return (List<Property>) this.propertyRepository.findAll(sortByIdDesc());
 	}
 
 	@Override
@@ -90,8 +89,10 @@ public class InmuebleService implements InmuebleServiceInterface{
 	public Property find(String id) {
 		return this.propertyRepository.findById(Long.parseLong(id));
 	}
-
 	
+	private Sort sortByIdDesc() {
+        return new Sort(Sort.Direction.DESC, "id");
+    }
 
 	
 }

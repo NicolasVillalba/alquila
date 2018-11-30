@@ -47,4 +47,10 @@ public class InmuebleWebVC {
 		model.addAttribute("inmueble", this.inmuebleService.findAll());
 		return "home1";
 	}
+	
+	@RequestMapping (value= "/terminosYcondic", method = RequestMethod.GET)
+	
+	public String terminos (Model model) {
+		return "terminosYcondic";
+	}
 }

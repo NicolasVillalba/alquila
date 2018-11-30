@@ -1,87 +1,244 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" 
+<html lang=""
+	 xmlns="http://www.w3.org/1999/xhtml" 
   xmlns:th="http://www.thymeleaf.org" 
   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" >
 <head>
-    <title>Home</title>
-    <link rel="stylesheet" type="text/css" th:href="@{css/home.css}" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="/img/alquilatips.png"/>
-    <script th:src="@{/js/jquery-3.3.1.min.js}"></script>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/home_nvo.css}"/>
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans|Lato" rel="stylesheet"/>
 </head>
+
 <body>
-<div class="nav" id="navbar">
-        <div class="ContainerNavbar">
-            <a href="#" class="iconnav"><img th:src="@{/img/alquila.png}" id="marca" /></a>
-            <div class="buttons">
-            <a name="btnC" th:href="@{/property/add}">
-	            <input type="button" name="Crear anuncio" id="anuncio" />
-	            <label for="anuncio" name="label" id="formulario">
-	            	CREAR ANUNCIO
-	            </label>
-            </a>
-            </div>
+    <header class="header">
+        <div class="header_container">
+          <div class="logo">
+          <a class="header logo" href="#"><img th:src="@{/img/alquila.png}"/></a>
+        </div>               
+          <div class="buttons">
+          <a name="btnC" th:href="@{/property/add}"> 
+            <div class="btn_container">
+            <input type="checkbox" id="crear_anuncio" name="btn" class="crear"/>
+              <label for="crear_anuncio"></label>
+              <span class="btn_crear">CREAR ANUNCIO</span>
+          </div>
+          </a>
+          </div>
+        
+      </div>
+      </header>
+    <div class="container">
+        <div class="video_container">
+            <video autoplay ="autoplay" loop ="loop" muted="muted" id="video_back">
+                <source id="webm" th:src="@{img/fondochaco_nvo2.webm}" type="video/webm"/>
+            </video>
         </div>
-    </div>
-    <div class="firstContainer">
-    <div class="card_container">
-    <h1>¡ÚLTIMOS ANUNCIOS!</h1>
-    <div class="card" th:each="i: ${inmueble}">
-        <div class="card image" th:style="'background-image:url(' + @{/image/} + ${i.id} +');'">
-        </div>
-        <div class="card_text_container">
-        <div class="card_title">
-            <span class="card_title text" id="dpto" th:text="${i.type}">DEPARTAMENTO</span> 
-                   <span class="title">ALQUILER</span><span id="alquiler" th:text="${i.price}">$6500</span>
-                    
-            
-        </div>
-        <div class="card_address">
-        <div class="address">
-            <h3 class="subtitle">DIRECCIÓN:</h3>
-                    
-                    <span class="dire" th:text="${i.adress.number}">5215</span>
-                        
-                        <h3 class="subtitle">DETALLES:</h3>
-                   		<p class="dire" name="otros" th:each="d:${i.details}">
-                   		<span class="otros" th:text="${d.name}">Otros:</span>
-                   		<span class="dire" th:text="${d.value}"> 
-                   			A 200  mts de la UNNE, frente a la facultad de ingeniería.
-                   		</span>
-                   		</p>
-        </div>
-                
-        </div>
-        <div class="card_actions">
-            <span class="date">29/10/2018</span>
-             <a name="btnB" th:href="@{'/property/' + ${i.id}}">
-             	<input type="button" name="Crearanuncio" id="buscar" />
-             	<label for="buscar" name="label" id="buscador">MAS DETALLES</label>
-             </a>
-        </div>
-        </div>
-    </div>
-    </div>
-        </div>
-        <footer>
-            <div class="footer">
-                <div class="footercontainer">
-                    <ul>
-                        <li>¿Quienes somos?</li>
-                        <li>Preguntas frecuentes</li>
-                        <li>Terminos y condiciones de uso</li>
-                        <li>Crear anuncio</li>
-                    </ul>
-                        <div class="redes">
-                        <span>Comunicate con nosotros</span>
-                        <div class="icons"><a href="#"><img th:src="@{/img/003-facebook.png}" /></a>
-                     <a href="#"><img th:src="@{/img/002-twitter.png}" /></a>
-                     <a href="#"><img th:src="@{/img/001-gmail.png}" /></a>
-                     </div>
+        <div class="buscador">
+            <div class="buscador_container">
+                <div class="dropdown container">
+                    <div class="select2">
+                        <input type="radio" name="option2"/>
+                        <i class="toggle icon icon-arrow-down"></i>
+                        <i class="toggle icon icon-arrow-up"></i>
+                        <span class="placeholder">Tipo de inmueble...</span>
+                        <label class="option">
+                            <input type="radio" name="option2" value=""/>
+                            <span class="title"><i class=""></i>Todos</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="option2" value=""/>
+                            <span class="title"><i class=""></i>Departamento</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="option2" value="1"/>
+                            <span class="title"><i class=""></i>Casa</span>
+                        </label>
+                    </div>
+
+                    <div class="select2">
+                        <input type="radio" name="option3"/>
+                        <i class="toggle icon icon-arrow-down"></i>
+                        <i class="toggle icon icon-arrow-up"></i>
+                        <span class="placeholder">Monto del alquiler...</span>
+                        <label class="option">
+                            <input type="radio" name="option3" value=""/>
+                            <span class="title"><span class=""></span>Todos</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="option3" value="5000"/>
+                            <span class="title"><span class=""></span>Hasta $5000</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="option3" value="10000"/>
+                            <span class="title"><span class=""></span>Hasta $10000</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="option3" value="15000"/>
+                            <span class="title"><span class=""></span>Hasta $15000</span>
+                        </label>
+                    </div>
+
+                    <div class="select2">
+                        <input type="radio" name="option4"/>
+                        <i class="toggle icon icon-arrow-down"></i>
+                        <i class="toggle icon icon-arrow-up"></i>
+                        <span class="placeholder">Cantidad de ambientes</span>
+                        <label class="option">
+                            <input type="radio" name="option4" value=""/>
+                            <span class="title"><i class=""></i>Monoambiente</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="option4" value="1"/>
+                            <span class="title"><i class=""></i>1</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="option4" value="2"/>
+                            <span class="title"><i class=""></i>2</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="option4" value="3"/>
+                            <span class="title"><i class=""></i>3</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="option4" vale="4"/>
+                            <span class="title"><i class=""></i>4 o más</span>
+                        </label>
+                    </div>
+
+                    <div class="select2">
+                        <input type="radio" name="option5"/>
+                        <i class="toggle icon icon-arrow-down"></i>
+                        <i class="toggle icon icon-arrow-up"></i>
+                        <span class="placeholder">Tipo de dueño...</span>
+                        <label class="option">
+                            <input type="radio" name="option5" value=""/>
+                            <span class="title"><i class=""></i>Propietario</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="option5" value="1"/>
+                            <span class="title"><i class=""></i>Inmobiliaria</span>
+                        </label>
                     </div>
                 </div>
+                <button id="buscar">BUSCAR</button>
             </div>
-        </footer>
+        </div>
+    </div>
+     <div class="tittle">
+        <div class="tittle_container">
+         <span class="tips"></span><h2>¡ÚLTIMOS ANUNCIOS!</h2>
+         </div>
+     </div>
+    <main>
+      <div id="block1">
+        <div class="row">
+          <div class="example-1 card" th:each="i, iterStat: ${inmueble}" th:if="${iterStat.first}">
+            <div class="wrapper" th:style="'background-image:url(' + @{/image/} + ${i.id} +');'">
+              <span id="nuevo">¡NUEVO!</span>
+              <span id="fecha" th:text="*{i.date}"></span>
+              <div class="data">
+                <div class="content">
+                  <span class="btn_detalles"></span>
+                  <div class="card-content tipo">
+                    <span class="tags" th:text="*{i.type}"></span>
+                    <span class="tags2">ALQUILER</span><span class="text_alquiler" th:text="'$'+*{i.price}"></span>
+                    <span class="tags2">EXPENSAS</span><span class="text_alquiler" th:text="*{i.expensesValue}"></span>
+                    <span class="tags2" >AMBIENTES</span><span class="text_alquiler" th:text="*{i.propertyDetail.rooms}"></span>
+                    <a th:href="@{'/property/' + ${i.id}}">
+                    	<span class="btn_detalles" ></span>
+                    </a>
+                  </div>
+                  <div class="border"></div>
+                  <div class="direccion_tittle">
+                    <span class="direccion_pic"></span><h3>DIRECCIÓN</h3>
+                  </div>
+                  <div class="card-content direccion">
+                    <span class="dire_text">Calle:</span><span class="text_dir" th:text="*{i.Adress.street}"></span>
+                    <span class="dire_text">Altura:</span><span class="text_dir" th:text="*{i.Adress.number}"></span>
+                  </div>
+                  <div class="card-content direccion2">
+                    <span class="dire_text">Piso:</span><span class="text_dir" th:text="*{i.Adress.floor}"></span>
+                    <span class="dire_text">Departamento:</span><span class="text_dir" th:text="*{i.Adress.apartment}"></span>
+                  </div>
+                  <div class="dire_otros">
+                    <span class="dire_text">Otros:</span><span class="text_dir" th:text="*{i.Adress.aditionalInfo}"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+		
+		
+          <div class="example-1 card" id="card2" th:each="i, iterStat: ${inmueble}" th:if="${iterStat.index >= iterStat.size-6}">
+            <div class="wrapper" th:style="'background-image:url(' + @{/image/} + ${i.id} +');'">
+              <span id="fecha2" th:text="*{i.date}"></span>
+              <div class="data">
+                <div class="content">
+                  <span class="btn_detalles"></span>
+                  <div class="card-content tipo">
+                    <span class="tags">DEPARTAMENTO</span>
+                    <span class="tags2">ALQUILER</span><span class="text_alquiler" th:text="'$'+*{i.price}"></span>
+                    <span class="tags2">EXPENSAS</span><span class="text_alquiler" th:text="*{i.expensesValue}"></span>
+                    <span class="tags2">AMBIENTES</span><span class="text_alquiler" th:text="*{i.propertyDetail.rooms}"></span>
+                    <a th:href="@{'/property/' + ${i.id}}">
+                    	<span class="btn_detalles" ></span>
+                    </a>
+                  </div>
+                  <div class="border"></div>
+                  <div class="direccion_tittle">
+                    <span class="direccion_pic"></span><h3>DIRECCIÓN</h3>
+                  </div>
+                  <div class="card-content direccion">
+                    <span class="dire_text">Calle:</span><span class="text_dir" th:text="*{i.Adress.street}"></span>
+                    <span class="dire_text">Altura:</span><span class="text_dir" th:text="*{i.Adress.number}"></span>
+                  </div>
+                  <div class="card-content direccion2">
+                    <span class="dire_text">Piso:</span><span class="text_dir" th:text="*{i.Adress.floor}"></span>
+                    <span class="dire_text">Departamento:</span><span class="text_dir" th:text="*{i.Adress.apartment}"></span>
+                  </div>
+                  <div class="dire_otros">
+                    <span class="dire_text">Otros:</span><span class="text_dir" th:text="*{i.Adress.aditionalInfo}"></span>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          
+          
+          
+          
+        </div>
+        
+      </div>
+    </main>
+    
+     <div class="wrap2"></div>
+    <footer class="footer">
+  <div class="footer_container">
+    <div class="Links">
+      <a href="#"><span class="footer_links">Sobre nosotros...</span></a>
+      <a href="#"><span class="footer_links">Terminos y condiciones</span></a>
+      <br/>
+      <a href="#"><span class="footer_links">Buscar</span></a>
+      <a href="#"><span class="footer_links">Crear anuncio...</span></a>
+    </div>
+    <div class="suscribe">
+      <h2>NEWSLETTER</h2>
+      <p>Ingresá tu email, para recibir notificaciones e información sobre las últimas propiedades agregadas para encontrarte con la que será tu próximo alquiler.</p>
+      <div class="input_sus">
+      <input type="email" placeholder="alquila@gmail.com" id="suscripcion"/>
+      <button>ENVIAR</button>
+    </div>
+      <div class="social_links">
+        <a href="https://www.facebook.com/"><span class="social" id="face"></span></a>
+        <a href="https://www.google.com/gmail/"><span class="social" id="gmail"></span></a>
+        <a href="https://twitter.com/?lang=es"><span class="social" id="twitter"></span></a>
+      </div>
+    </div>
+  </div>
+      </footer>
 </body>
+
 </html>

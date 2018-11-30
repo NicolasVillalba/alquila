@@ -179,7 +179,7 @@ function nextPrev(n) {
 	if($("#descripcion").val() == ""){
 		$("#descripcion").val("Sin información adicional");
 	}
-	
+	armarFecha();
 	
 	if (currentTab >= x.length) {
 		// ...the form gets submitted:
@@ -369,3 +369,16 @@ document.getElementById('pno').onclick = function() {
 	$("#inputPatio").val('NO');
 };
 $("#descripcion").val("");
+
+//------------------------------------Armar fecha---------------------------------------------
+
+function armarFecha(){
+	diaActual = new Date();
+
+	var day = diaActual.getDate();
+	var month = diaActual.getMonth()+1;
+	var year = diaActual.getFullYear();
+
+	fecha  = day + '/' + month + '/' + year;
+	$("#inputFecha").val(fecha);
+}

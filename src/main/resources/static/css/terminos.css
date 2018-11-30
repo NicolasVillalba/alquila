@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css?family=Asap|Lato');
+
+html {
+overflow-x: hidden;
+    width: 100%;
+}
+body {
+    margin: 0;
+    border:0;
+}
+
+/*......................................*/
+
+
+#navbar {
+    width: 100vw;
+    height: 12vh;
+    box-shadow: 0px 10px 10px -10px rgba(0, 0, 0, 0.3);
+    position: -webkit-sticky;
+    position: sticky;
+    z-index: 4;
+    top:0;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin:0;
+}
+
+a{
+    display: flex;
+    align-items: center;
+}
+
+a:link {
+    text-decoration: none;
+    color: black;
+}
+a:link, a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+a:link:active, a:visited:active {
+    color: (internal value);
+}
+
+
+
+#anuncio {
+    width:2vw;
+    height: 4vh;
+    border-radius:180px;
+    border: none;
+    outline: none;
+    background-color: #d9654f
+}
+
+#buscar {
+    width:2vw;
+    height: 4vh;
+    border-radius:180px;
+    border: none;
+    outline: none;
+    background-color: #d9654f
+}
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-end;
+    width: 40%;
+}
+[name="btnB"] {
+    margin-right: 20px;
+}
+[name="label"] {
+    margin-left: 10px;
+    font-family: 'Asap',sans-serif;
+    font-weight: 600;
+    font-size:calc (12px + 0.3vw);
+}
+#formulario {
+    width:150px;
+}
+
+.ContainerNavbar {
+    margin: auto;
+    width:80vw;
+    display: flex;
+    align-items:center;
+    cursor: pointer;
+    justify-content: space-between;
+}
+/*......................................*/
+.firstContainer {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.card_container {
+    grid-column-start: 2;
+    grid-column-end: 5;
+    margin-top: 30px;
+}
+
+h1 {
+    font-family: 'Asap', sans-serif;
+    font-weight: 900;
+    color:#d9654f;
+    margin-bottom: 30px;
+}
+.card {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction:row;
+    border:1px;
+    box-sizing: border-box;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background-color: white;
+    border-radius: 5px
+}
+.image {
+    width: 340px;
+    display: flex;
+    flex-grow: 1 auto;
+    height: auto;
+    border: none;
+    box-shadow: none;
+    padding: none;
+    margin: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.card_address {
+    padding-left: 15px;
+    padding-bottom: 10px;
+    padding-right: 15px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Asap',sans-serif;
+    font-weight: 600;
+    font-size:1.2vw;
+}
+.card_actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 2px solid;
+    border-top-color: #f2f2f2;
+    padding-left: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.card_title {
+    padding-left: 7px;
+    display: flex;
+    flex-grow: 0 auto;
+    align-items: center;
+    padding-right: 8px;
+    justify-content:flex-start;
+}
+.addressgroup {
+    font-family: 'Asap', sans-serif;
+    font-weight: 700;
+    margin-right: 8px;
+    font-size: 0.9vw;
+}
+.dire {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 1vw;
+    margin-right: 10px;
+}
+
+ #dpto{
+   padding: .4em;
+    background-color:#f5c67f;
+    color:white;
+    font-family: 'Asap', sans-serif;
+    font-weight: 700;
+    border-radius: 5px;
+    align-self: center;
+    font-size: 1vw;
+}
+#alquiler {
+    padding: .3em;
+    background-color:#d9654f;
+    color:white;
+    font-family: 'Asap', sans-serif;
+    font-weight: 700;
+    border-radius: 5px;
+    font-size: 1vw;
+}
+
+span.title {
+    font-family: 'Asap', sans-serif;
+    font-weight: 700;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 1vw;
+}
+
+#expensas {
+    padding: .3em;
+    background-color:#d9654f;
+    color:white;
+    font-family: 'Asap', sans-serif;
+    font-weight: 700;
+    border-radius: 5px;
+    font-size: 1vw;
+}
+
+.card_text_container{
+    padding-top: 20px;
+}
+
+.date {
+    font-family: 'Asap', sans-serif;
+    font-weight: 700;
+    font-size: 1vw;
+}
+.otros {
+    font-size: 0.9vw;
+}
+.subtitle {
+    font-size: 1vw;
+}
+/*......................................*/
+
+
+.footercontainer {
+    width: 80vw;
+    height: auto;
+    display: flex;
+    justify-content:space-between;
+    align-content: center;
+    margin-right: 50px;
+}
+
+
+.redes {
+    text-align: center;
+    margin:10px;
+    font-family: 'Lato', sans-serif;
+    color: white;
+    font-weight: 700;
+    font-size: calc(13px + 0.2vw);
+    align-self: flex-end;
+    letter-spacing: 1px;
+}
+
+.icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.text {
+    font-family: 'Asap', sans-serif;
+    margin-bottom: 30px;
+    text-align : justify;
+}
+
+.items {
+    font-family: 'Asap', sans-serif;
+    list-style: circle;
+    margin-left: 0;
+    font-weight: 400;
+    
+}
+
+.ulFooter {
+    font-family: 'Lato', sans-serif;
+    color: white;
+    list-style: none;
+    margin-left: 0;
+    font-weight: 700;
+    font-size: calc(10px + 0.2vw);
+    letter-spacing: 0.5px;
+}
+
+.liFooter {
+    list-style-type: none;
+    margin-bottom: 7px;
+    letter-spacing: 1px;
+
+}
+
+.liFooter a {
+  color: inherit;
+}
+
+
