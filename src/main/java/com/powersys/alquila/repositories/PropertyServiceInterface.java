@@ -3,11 +3,12 @@ package com.powersys.alquila.repositories;
 import java.util.List;
 
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import com.powersys.alquila.dtos.PropertyDTO;
 
 
-
+@Repository
 public interface PropertyServiceInterface {
 	
 	public List<PropertyDTO> findAll(); 

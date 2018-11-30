@@ -3,7 +3,7 @@ package com.powersys.alquila.dtos;
 public class SearchDTO {
 	
 	private String placeType;
-	private String price;
+	private Integer price;
 	private String rooms;
 	
 	
@@ -13,10 +13,10 @@ public class SearchDTO {
 	public void setPlaceType(String placeType) {
 		this.placeType = placeType;
 	}
-	public String getPrice() {
+	public Integer getPrice() {
 		return price;
 	}
-	public void setPrice(String price) {
+	public void setPrice(Integer price) {
 		this.price = price;
 	}
 	public String getRooms() {

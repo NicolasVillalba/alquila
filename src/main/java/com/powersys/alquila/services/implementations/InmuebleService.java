@@ -12,6 +12,7 @@ import com.powersys.alquila.domain.Property;
 import com.powersys.alquila.domain.PropertyDetail;
 import com.powersys.alquila.dtos.InmuebleDTO;
 import com.powersys.alquila.dtos.PropertyDTO;
+import com.powersys.alquila.dtos.SearchDTO;
 import com.powersys.alquila.repositories.PlacesRepository;
 import com.powersys.alquila.services.interfaces.InmuebleServiceInterface;
 
@@ -93,6 +94,18 @@ public class InmuebleService implements InmuebleServiceInterface{
 	private Sort sortByIdDesc() {
         return new Sort(Sort.Direction.DESC, "id");
     }
+
+	public void propertyService(SearchDTO searchDTO) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void propertyServiceImp(SearchDTO searchDTO) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 
 	
 }
