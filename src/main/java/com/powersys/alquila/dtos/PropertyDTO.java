@@ -3,26 +3,26 @@ package com.powersys.alquila.dtos;
 import org.springframework.web.multipart.MultipartFile;
 
 public class PropertyDTO {
-
+	//Property
 	private String placeType;
 	private String expenses;
 	private String expensesValue;
 	private String rooms;
 	private Integer price;
 	private String date;
-	
+	//address
 	private String aStreet;
 	private String aNumber;
 	private String aFloor;
 	private String aApartment;
 	private String aAditionalInfo;
-	
+	//PropertyDetail
 	private String aditionalBathroom;
 	private String yard;
 	private String garage2;
 	private String balcony;
 	private String aditionalProInfo;
-	
+	//PropertyLigalDetail
 	private String guarantor;
 	private String notary;
 	private String contract;
@@ -31,12 +31,13 @@ public class PropertyDTO {
 	private String initialDeposit;
 	private String initialDepositValue;	
 	private String aditionalLegInfo;
-	
+	//Property
 	private MultipartFile image;
 	private MultipartFile image2;
 	private MultipartFile image3;
 	private MultipartFile image4;
 	private MultipartFile image5;
+	
 	private String path;
 	private String path2;
 	private String path3;

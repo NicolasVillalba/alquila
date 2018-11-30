@@ -1,4 +1,4 @@
-package com.powersys.alquila.repositories;
+package com.powersys.alquila.services.interfaces;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ public interface PropertyServiceInterface {
 	
 	public List<PropertyDTO> findAll(); 
 	
-	public PropertyDTO findOne(@Param("idPropertyDTO") Long idPropertyDTO);
+	public PropertyDTO findOne(@Param("idProperty") Long idProperty);
 
 	public List<PropertyDTO> findByPriceTypeRooms(@Param("price") Integer price,@Param("type") String type, @Param("rooms") String rooms);
 
