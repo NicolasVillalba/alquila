@@ -8,18 +8,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.powersys.alquila.dtos.InmuebleDTO;
 import com.powersys.alquila.dtos.PropertyDTO;
-import com.powersys.alquila.dtos.SearchDTO;
 import com.powersys.alquila.services.implementations.InmuebleService;
-import com.powersys.alquila.services.implementations.PropertyServiceImp;
 import com.powersys.alquila.services.implementations.StorageServise;
 
 @Controller
 public class InmuebleWebVC {
 
-	private InmuebleService inmuebleService;
-	private PropertyServiceImp propertyService;
+	private InmuebleService inmuebleService;	
 	
 	private StorageServise image;
 
@@ -43,13 +39,7 @@ public class InmuebleWebVC {
 		inmuebleDTO.setPath5(this.image.store(inmuebleDTO.getImage5()));
 		this.inmuebleService.insertInmueble(inmuebleDTO);
 		return "redirect:/";
-	}
-	
-	@PostMapping("/search")
-	public String search(@ModelAttribute SearchDTO inmuebleDTO, Model model) {
-		this.propertyService.insertInmueble(inmuebleDTO);
-		return "redirect:/";
-	}
+	}	
 
 	@GetMapping(value = "/")
 	public String home(Model model) {

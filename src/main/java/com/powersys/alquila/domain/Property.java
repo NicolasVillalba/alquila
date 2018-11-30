@@ -33,9 +33,9 @@ public class Property {
 		
 	private String type;
 	
-	private String expenses;
+	private String expenses;//guarda "si" o "no"
 	
-	private String expensesValue;
+	private String expensesValue;//guarda el valor de la expensa
 	private String date;
 	
 	private String image;
