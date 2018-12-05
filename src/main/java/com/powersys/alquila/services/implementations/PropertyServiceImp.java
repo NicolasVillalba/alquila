@@ -10,7 +10,7 @@ import com.powersys.alquila.domain.Property;
 import com.powersys.alquila.dtos.PropertyDTO;
 
 import com.powersys.alquila.repositories.PropertyRepository;
-import com.powersys.alquila.repositories.PropertyServiceInterface;
+import com.powersys.alquila.services.interfaces.PropertyServiceInterface;
 
 @Service
 public class PropertyServiceImp implements PropertyServiceInterface {
@@ -21,6 +21,9 @@ public class PropertyServiceImp implements PropertyServiceInterface {
 
 	// method for set propertyDTO
 	public PropertyDTO propertyToDTO(Property property) {
+		System.out.println(":::::propertyToDTO:::::::");
+		System.out.println(property);
+		System.out.println(":::::::::::::::::::::::::");
 		PropertyDTO propertyDTO = new PropertyDTO();
 		propertyDTO.setId(property.getId());
 		propertyDTO.setPlaceType(property.getType());
@@ -53,7 +56,6 @@ public class PropertyServiceImp implements PropertyServiceInterface {
 		propertyDTO.setPath5(property.getImage5());
 		propertyDTO.setGarage2(property.getPropertyDetail().getGarage2());
 		propertyDTO.setDate(property.getDate());
-
 		return propertyDTO;
 	}
 
@@ -129,7 +131,9 @@ public class PropertyServiceImp implements PropertyServiceInterface {
 		for(Property property : (List<Property>) this.propertyRepository.findByPrice(price)) {
 			dtos.add(propertyToDTO(property));
 		}
-		
+		System.out.println(":::service:::");
+		System.out.println(dtos);
+		System.out.println(":::::::::::::");
 		return dtos;
 		
 	}
