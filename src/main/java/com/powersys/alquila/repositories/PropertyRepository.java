@@ -23,7 +23,7 @@ public interface PropertyRepository extends CrudRepository<Property, String> {
 	@Query("select p from Property p where (p.type=:type) and (p.propertyDetail.rooms=:rooms)")
 	public List<Property> findByTypeRooms(@Param("type") String type, @Param("rooms") String rooms);
 
-	@Query("select p from Property p where (p.price <= :price) and (p.type=:type) and (p.propertyDetail.rooms=:rooms)")
+	@Query("select p from Property p where (p.price <= :price) and (p.propertyDetail.rooms=:rooms)")
 	public List<Property> findByPriceRooms(@Param("price") Integer price, @Param("rooms") String rooms);	
 	
 	@Query("select p from Property p where p.propertyDetail.rooms=:rooms")
