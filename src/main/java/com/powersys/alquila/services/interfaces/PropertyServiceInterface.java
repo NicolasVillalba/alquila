@@ -2,7 +2,6 @@ package com.powersys.alquila.services.interfaces;
 
 import java.util.List;
 
-import com.powersys.alquila.domain.Property;
 import com.powersys.alquila.dtos.PropertyDTO;
 
 
@@ -23,7 +22,7 @@ public interface PropertyServiceInterface {
 
 	public List<PropertyDTO> findByType(String type);
 	
-	public List<Property> findByPrice(Integer price);
+	public List<PropertyDTO> findByPrice(Integer price);
 	
 	public List<PropertyDTO> findByRooms(String rooms);
 }
