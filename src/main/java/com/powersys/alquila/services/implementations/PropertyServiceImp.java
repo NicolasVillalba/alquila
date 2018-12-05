@@ -15,20 +15,14 @@ import com.powersys.alquila.repositories.PropertyServiceInterface;
 @Service
 public class PropertyServiceImp implements PropertyServiceInterface {
 
-	
-
-	
-	
-
 	@Autowired
 	private PropertyRepository propertyRepository;
-	private PropertyDTO propertyDTO = new PropertyDTO();
-	private List<PropertyDTO> listPropertyDTO = new ArrayList<>();
 
 
 	// method for set propertyDTO
 	public PropertyDTO propertyToDTO(Property property) {
-		
+		PropertyDTO propertyDTO = new PropertyDTO();
+		propertyDTO.setId(property.getId());
 		propertyDTO.setPlaceType(property.getType());
 		propertyDTO.setPrice(property.getPrice());
 		propertyDTO.setRooms(property.getPropertyDetail().getRooms());
@@ -65,12 +59,13 @@ public class PropertyServiceImp implements PropertyServiceInterface {
 
 	@Override
 	public List<PropertyDTO> findAll() {
+		List<PropertyDTO> dtos = new ArrayList<>();
 		for(Property property : (List<Property>) this.propertyRepository.findAll() ) {
-			this.listPropertyDTO.add(propertyToDTO(property));
+			dtos.add(propertyToDTO(property));
 			
 		}
 		
-		return this.listPropertyDTO;
+		return dtos;
 	}
 
 	@Override
@@ -81,71 +76,71 @@ public class PropertyServiceImp implements PropertyServiceInterface {
 
 	@Override
 	public List<PropertyDTO> findByPriceTypeRooms(Integer price, String type, String rooms) {
+		List<PropertyDTO> dtos = new ArrayList<>();
 		for(Property property : (List<Property>) this.propertyRepository.findByPriceTypeRooms(price, type, rooms)) {
-			this.listPropertyDTO.add(propertyToDTO(property));
+			dtos.add(propertyToDTO(property));
 		}
 		
-		return this.listPropertyDTO;
+		return dtos;
 	}
 
 	@Override
 	public List<PropertyDTO> findByPriceType(Integer price, String type) {
+		List<PropertyDTO> dtos = new ArrayList<>();
 		for(Property property : (List<Property>) this.propertyRepository.findByPriceType(price, type)) {
-			this.listPropertyDTO.add(propertyToDTO(property));
+			dtos.add(propertyToDTO(property));
 		}
 		
-		return this.listPropertyDTO;
+		return dtos;
 	}
 
 	@Override
 	public List<PropertyDTO> findByTypeRooms(String type, String rooms) {
-//		for(Property property : (List<Property>) this.propertyRepository.findByTypeRooms(type, rooms)) {
-//			this.listPropertyDTO.add(propertyToDTO(property));
-//		}
-		
-//		return this.listPropertyDTO;
-		return null;
+		List<PropertyDTO> dtos = new ArrayList<>();
+		for(Property property : (List<Property>) this.propertyRepository.findByTypeRooms(type, rooms)) {
+			dtos.add(propertyToDTO(property));
+		}
+		return dtos;
 	}
 
 	@Override
 	public List<PropertyDTO> findByPriceRooms(Integer price, String rooms) {
+		List<PropertyDTO> dtos = new ArrayList<>();
 		for(Property property : (List<Property>) this.propertyRepository.findByPriceRooms(price, rooms)) {
-			this.listPropertyDTO.add(propertyToDTO(property));
+			dtos.add(propertyToDTO(property));
 		}
 		
-		return this.listPropertyDTO;
+		return dtos;
 	}
 
 	@Override
 	public List<PropertyDTO> findByType(String type) {
+		List<PropertyDTO> dtos = new ArrayList<>();
 		for(Property property : (List<Property>) this.propertyRepository.findByType(type)) {
-			this.listPropertyDTO.add(propertyToDTO(property));
+			dtos.add(propertyToDTO(property));
 		}
 		
-		return this.listPropertyDTO;
+		return dtos;
 	}
 
 	@Override
 	public List<PropertyDTO> findByPrice(Integer price) {
+		List<PropertyDTO> dtos = new ArrayList<>();
 		for(Property property : (List<Property>) this.propertyRepository.findByPrice(price)) {
-			this.listPropertyDTO.add(propertyToDTO(property));
+			dtos.add(propertyToDTO(property));
 		}
 		
-		return this.listPropertyDTO;
+		return dtos;
+		
 	}
 
 	@Override
 	public List<PropertyDTO> findByRooms(String rooms) {
+		List<PropertyDTO> dtos = new ArrayList<>();
 		for(Property property : (List<Property>) this.propertyRepository.findByRooms(rooms)) {
-			this.listPropertyDTO.add(propertyToDTO(property));
+			dtos.add(propertyToDTO(property));
 		}
 		
-		return this.listPropertyDTO;
+		return dtos;
 	}
 }
-
-
-
-	
-
-
