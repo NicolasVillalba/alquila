@@ -44,15 +44,15 @@
                         <i class="toggle icon icon-arrow-up"></i>
                         <span class="placeholder">Tipo de inmueble...</span>
                         <label class="option">
-                            <input type="radio" name="option2" th:value="*{placeType}"/>
+                            <input type="radio" name="option2" value="" th:field="*{placeType}"/>
                             <span class="title"><i class=""></i>Todos</span>
                         </label>
                         <label class="option">
-                            <input type="radio" name="option2" value="DEPARTAMENTO" th:value="*{placeType}"/>
+                            <input type="radio" name="option2" value="DEPARTAMENTO" th:field="*{placeType}"/>
                             <span class="title"><i class=""></i>Departamento</span>
                         </label>
                         <label class="option">
-                            <input type="radio" name="option2" value="CASA" th:value="*{placeType}"/>
+                            <input type="radio" name="option2" value="CASA" th:field="*{placeType}"/>
                             <span class="title"><i class=""></i>Casa</span>
                         </label>
                     </div>
@@ -63,19 +63,19 @@
                         <i class="toggle icon icon-arrow-up"></i>
                         <span class="placeholder">Monto del alquiler...</span>
                         <label class="option">
-                            <input type="radio" name="option3" value="" th:value="*{price}"/>
+                            <input type="radio" name="option3" value="" th:field="*{price}"/>
                             <span class="title"><span class=""></span>Todos</span>
                         </label>
                         <label class="option">
-                            <input type="radio" name="option3" value="5000" th:value="*{price}"/>
+                            <input type="radio" name="option3" value="5000" th:field="*{price}"/>
                             <span class="title"><span class=""></span>Hasta $5000</span>
                         </label>
                         <label class="option">
-                            <input type="radio" name="option3" value="10000" th:value="*{price}"/>
+                            <input type="radio" name="option3" value="10000" th:field="*{price}"/>
                             <span class="title"><span class=""></span>Hasta $10000</span>
                         </label>
                         <label class="option">
-                            <input type="radio" name="option3" value="15000" th:value="*{price}"/>
+                            <input type="radio" name="option3" value="15000" th:field="*{price}"/>
                             <span class="title"><span class=""></span>Hasta $15000</span>
                         </label>
                     </div>
@@ -86,23 +86,23 @@
                         <i class="toggle icon icon-arrow-up"></i>
                         <span class="placeholder">Cantidad de ambientes</span>
                         <label class="option">
-                            <input type="radio" name="option4" value="Monoambiente" th:value="*{rooms}"/>
+                            <input type="radio" name="option4" value="Monoambiente" th:field="*{rooms}"/>
                             <span class="title"><i class=""></i>Monoambiente</span>
                         </label>
                         <label class="option">
-                            <input type="radio" name="option4" value="1" th:value="*{rooms}"/>
+                            <input type="radio" name="option4" value="1" th:field="*{rooms}"/>
                             <span class="title"><i class=""></i>1</span>
                         </label>
                         <label class="option">
-                            <input type="radio" name="option4" value="2" th:value="*{rooms}"/>
+                            <input type="radio" name="option4" value="2" th:field="*{rooms}"/>
                             <span class="title"><i class=""></i>2</span>
                         </label>
                         <label class="option">
-                            <input type="radio" name="option4" value="3" th:value="*{rooms}"/>
+                            <input type="radio" name="option4" value="3" th:field="*{rooms}"/>
                             <span class="title"><i class=""></i>3</span>
                         </label>
                         <label class="option">
-                            <input type="radio" name="option4" vale="4" th:value="*{rooms}"/>
+                            <input type="radio" name="option4" value="4" th:field="*{rooms}"/>
                             <span class="title"><i class=""></i>4 o más</span>
                         </label>
                     </div>

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.powersys.alquila.dtos.PropertyDTO;
+import com.powersys.alquila.dtos.SearchDTO;
 import com.powersys.alquila.services.implementations.InmuebleService;
 import com.powersys.alquila.services.implementations.StorageServise;
 
@@ -44,6 +45,7 @@ public class InmuebleWebVC {
 	@GetMapping(value = "/")
 	public String home(Model model) {
 		model.addAttribute("inmueble", this.inmuebleService.findAll());
+		model.addAttribute("search", new SearchDTO());
 		return "home1";
 	}
 	
@@ -51,7 +53,5 @@ public class InmuebleWebVC {
 	public String terminos (Model model) {
 		return "terminosYcondic";
 	}
-	
-	
 	
 }

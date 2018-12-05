@@ -4,6 +4,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class PropertyDTO {
 	//Property
+	private Long id;
 	private String placeType;
 	private String expenses;
 	private String expensesValue;
@@ -328,6 +329,29 @@ public class PropertyDTO {
 
 	public void setDate(String date) {
 		this.date = date;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	@Override
+	public String toString() {
+		return "PropertyDTO [id=" + id + ", placeType=" + placeType + ", expenses=" + expenses + ", expensesValue="
+				+ expensesValue + ", rooms=" + rooms + ", price=" + price + ", date=" + date + ", aStreet=" + aStreet
+				+ ", aNumber=" + aNumber + ", aFloor=" + aFloor + ", aApartment=" + aApartment + ", aAditionalInfo="
+				+ aAditionalInfo + ", aditionalBathroom=" + aditionalBathroom + ", yard=" + yard + ", garage2="
+				+ garage2 + ", balcony=" + balcony + ", aditionalProInfo=" + aditionalProInfo + ", guarantor="
+				+ guarantor + ", notary=" + notary + ", contract=" + contract + ", contractExpenses=" + contractExpenses
+				+ ", contractExpensesValue=" + contractExpensesValue + ", initialDeposit=" + initialDeposit
+				+ ", initialDepositValue=" + initialDepositValue + ", aditionalLegInfo=" + aditionalLegInfo + ", image="
+				+ image + ", image2=" + image2 + ", image3=" + image3 + ", image4=" + image4 + ", image5=" + image5
+				+ ", path=" + path + ", path2=" + path2 + ", path3=" + path3 + ", path4=" + path4 + ", path5=" + path5
+				+ "]";
 	}
 
 

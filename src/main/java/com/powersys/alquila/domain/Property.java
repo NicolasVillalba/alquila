@@ -36,6 +36,7 @@ public class Property {
 	private String expenses;//guarda "si" o "no"
 	
 	private String expensesValue;//guarda el valor de la expensa
+	
 	private String date;
 	
 	private String image;
@@ -173,7 +174,14 @@ public class Property {
 		this.date = date;
 	}
 
+	@Override
+	public String toString() {
+		return "Property [id=" + id + ", adress=" + adress + ", owner=" + owner + ", propertyDetail=" + propertyDetail
+				+ ", legalDetail=" + legalDetail + ", price=" + price + ", type=" + type + ", expenses=" + expenses
+				+ ", expensesValue=" + expensesValue + ", date=" + date + ", image=" + image + ", image2=" + image2
+				+ ", image3=" + image3 + ", image4=" + image4 + ", image5=" + image5 + "]";
+	}
 	
-
+	
 	
 }
