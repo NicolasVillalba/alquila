@@ -21,7 +21,7 @@ public class SearchWC {
 	
 	@GetMapping(value = "/search")
 	public String search(Model model) {
-		List<PropertyDTO> list = this.propertyService.findByPrice(60000);
+		List<PropertyDTO> list = this.propertyService.findByPrice(15000);
 		model.addAttribute("property", list);
 		return "results";
 	}
@@ -45,17 +45,29 @@ public class SearchWC {
 		if(searchDTO.getPlaceType() != null && searchDTO.getPrice() != null && searchDTO.getRooms() != null) 
 		{
 			model.addAttribute("property", this.propertyService.findByPriceTypeRooms(
-					Integer.getInteger(searchDTO.getPrice()), 
+					Integer.valueOf(searchDTO.getPrice()), 
 					searchDTO.getPlaceType(), 
 					searchDTO.getRooms())
 			);
+			System.out.println("::::::::::::todos seteados:::::::::::::");
+			System.out.println(searchDTO.getPlaceType());
+			System.out.println(searchDTO.getPrice());
+			System.out.println(searchDTO.getRooms());
 			
 			return "results";
 		}
 		
 		//solo precio
 		if(searchDTO.getPrice() != null && searchDTO.getPlaceType() == null && searchDTO.getRooms() == null) {
-			model.addAttribute("property", this.propertyService.findByPrice(Integer.getInteger(searchDTO.getPrice())));
+			model.addAttribute("property", this.propertyService.findByPrice(Integer.valueOf(searchDTO.getPrice())));
+			
+			System.out.println("::::::::::::solo precio:::::::::::::");
+			System.out.println(searchDTO.getPlaceType());
+			System.out.println(searchDTO.getPrice());
+			System.out.println(searchDTO.getRooms());
+			System.out.println(this.propertyService.findByPrice(Integer.valueOf(searchDTO.getPrice())).size());
+			
+
 			return "results";
 		}
 		//solo place type
@@ -73,12 +85,16 @@ public class SearchWC {
 		}
 		//precio room
 		if(searchDTO.getPrice() != null && searchDTO.getPlaceType() == null && searchDTO.getRooms() != null) {
-			model.addAttribute("property", this.propertyService.findByPriceRooms(Integer.getInteger(searchDTO.getPrice()), searchDTO.getRooms()));
+			model.addAttribute("property", this.propertyService.findByPriceRooms(Integer.valueOf(searchDTO.getPrice()), searchDTO.getRooms()));
+			System.out.println("::::::::::::precio room:::::::::::::");
+			System.out.println(searchDTO.getPlaceType());
+			System.out.println(searchDTO.getPrice());
+			System.out.println(searchDTO.getRooms());
 			return "results";
 		}
 		//precio tipo
 		if(searchDTO.getPrice() != null && searchDTO.getPlaceType() != null && searchDTO.getRooms() == null) {
-			model.addAttribute("property", this.propertyService.findByPriceType(Integer.getInteger(searchDTO.getPrice()), searchDTO.getPlaceType()));
+			model.addAttribute("property", this.propertyService.findByPriceType(Integer.valueOf(searchDTO.getPrice()), searchDTO.getPlaceType()));
 			return "results";
 		}
 		//tipo room
