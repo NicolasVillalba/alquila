@@ -60,3 +60,14 @@ if($("#balcon").attr("value") == "NO"){
 if($("#patio").attr("value") == "NO"){
 	$("#spanPatio").attr("class", "iconx")
 }
+
+$('.btn_container').click(function (e) {
+    if($('#buscador-box').css('opacity') == 0){
+        $('#buscador-box').animate({opacity: 1});
+        $('#buscador-box').css("display", "flex");
+    }
+    else{
+        $('#buscador-box').animate({opacity: 0});
+        $('#buscador-box').css("display", "none");
+    }
+});
